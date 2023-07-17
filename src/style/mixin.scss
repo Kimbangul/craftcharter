@@ -3,7 +3,7 @@
   justify-content: $jc;
   align-items: $ai;
   gap: $gap;
-  direction: $dir;
+  flex-direction: $dir;
 }
 
 @mixin btn-rounded($color: '#fff', $hover: '#000') {
