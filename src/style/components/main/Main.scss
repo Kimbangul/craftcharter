@@ -1,0 +1,14 @@
+.Main {
+  width: 100%;
+  height: 100vh;
+  position: relative;
+  z-index: 0;
+
+  &__video {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    overflow: hidden;
+    object-fit: cover;
+  }
+}

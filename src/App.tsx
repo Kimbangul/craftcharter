@@ -1,12 +1,13 @@
-import React from 'react';
 import 'style/style.scss';
+
 import Header from 'components/header/Header';
+import Main from 'components/main/Main';
 
 function App() {
   return (
     <div className='App'>
       <Header />
-      test
+      <Main />
     </div>
   );
 }

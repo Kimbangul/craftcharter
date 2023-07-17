@@ -5,11 +5,13 @@ const Header = () => {
   return (
     <header className='Header'>
       <Logo />
-      <button>
+      <button className='Header__btn--nav'>
         {/* <img src={NavIcon} alt='' fill=''//> */}
         <NavIcon fill='#000' />
       </button>
-      <button className='Header__btn--contact'>CONTACT</button>
+      <a href='#' className='Header__btn--contact'>
+        CONTACT
+      </a>
     </header>
   );
 };
