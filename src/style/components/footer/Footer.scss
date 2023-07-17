@@ -1,0 +1,49 @@
+.Footer {
+  background: $white;
+  padding: 7.8rem 0 2.5rem 0;
+
+  @mixin inner_item {
+    max-width: $max-inner;
+    padding: 0 2.4rem;
+    margin: 0 auto;
+  }
+
+  &__header {
+    @include inner_item();
+    @include flex(space-between, center);
+  }
+
+  &__nav {
+    @include flex(flex-start, center, 4rem);
+    ul {
+      @include flex(flex-start, center, 4rem);
+    }
+    &-item {
+      font-weight: 600;
+      font-size: 1.5rem;
+      transition: opacity 0.3s;
+      text-transform: uppercase;
+
+      &:hover {
+        opacity: 0.7;
+      }
+    }
+  }
+
+  &__btn {
+    &--round {
+      @include btn-rounded($black, $white);
+      text-transform: uppercase;
+    }
+  }
+
+  hr {
+    @include inner_item();
+    margin-top: 13.2rem;
+    border-color: rgba(0, 0, 0, 0.1);
+  }
+
+  &__bottom {
+    @include inner_item();
+  }
+}

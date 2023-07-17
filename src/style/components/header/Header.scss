@@ -23,6 +23,7 @@
 
     &--contact {
       @include btn-rounded($white, $black);
+      text-transform: uppercase;
     }
   }
 }

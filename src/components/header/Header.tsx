@@ -10,7 +10,7 @@ const Header = () => {
           <NavIcon />
         </button>
         <a href='#' className='Header__btn--contact'>
-          CONTACT
+          contact
         </a>
       </div>
     </header>
