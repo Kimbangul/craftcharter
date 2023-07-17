@@ -33,8 +33,8 @@
   }
 
   &__text {
+    @include exo(600);
     text-transform: uppercase;
-    font-weight: 600;
     color: $white;
     text-align: center;
     // perspective: 0;

@@ -1,10 +1,11 @@
 import { ReactComponent as LOGOIMG } from 'assets/image/common/craft-full-black.svg';
+import { LogoPropsType } from 'components/common/logo/type';
 
-const Logo = () => {
+const Logo: React.FC<LogoPropsType> = (props) => {
   return (
     <div className='Logo'>
       <a href='#'>
-        <LOGOIMG />
+        <LOGOIMG fill={props.fill && props.fill} />
       </a>
     </div>
   );
