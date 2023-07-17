@@ -1,12 +1,15 @@
 import Logo from 'components/common/logo/Logo';
-// import NavIcon from 'assets/image/common/nav-icon.svg';
+import { ReactComponent as NavIcon } from 'assets/image/common/nav-icon.svg';
 
 const Header = () => {
   return (
-    <header>
+    <header className='Header'>
       <Logo />
-      <button>{/* <NavIcon /> */}</button>
-      <button>CONTACT</button>
+      <button>
+        {/* <img src={NavIcon} alt='' fill=''//> */}
+        <NavIcon fill='#000' />
+      </button>
+      <button className='Header__btn--contact'>CONTACT</button>
     </header>
   );
 };

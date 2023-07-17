@@ -1,0 +1,13 @@
+.Header {
+  @include flex(space-between, center);
+  padding: 3.5rem 0rem 0.8rem 4rem;
+  max-width: $max-inner;
+  margin: 0 auto;
+  background: transparent;
+
+  &__btn {
+    &--contact {
+      @include btn-rounded(#fff, #000);
+    }
+  }
+}

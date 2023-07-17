@@ -1,8 +1,8 @@
-import LOGOIMG from 'assets/image/common/craft-full-black.svg';
+import { ReactComponent as LOGOIMG } from 'assets/image/common/craft-full-black.svg';
 
 const Logo = () => {
   return (
-    <div>
+    <div className='Logo'>
       <a href='#'>
         <LOGOIMG />
       </a>
