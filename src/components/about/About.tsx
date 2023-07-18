@@ -1,4 +1,3 @@
-import { ReactComponent as BTN_ARROW } from 'assets/image/common/btn-arrow.svg';
 import ABOUT_BG01 from 'assets/image/about/about_bg01.webp';
 import ABOUT_BG02 from 'assets/image/about/about_bg02.jpeg';
 import { ReactComponent as METER } from 'assets/image/about/meter.svg';

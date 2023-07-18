@@ -45,12 +45,6 @@
       @include exo(700);
       font-size: 9rem;
       line-height: 11.5rem;
-
-      // @for $i from 0 to 2 {
-      //   &:nth-child(#{$i}) {
-      //     @include slideUp($i);
-      //   }
-      // }
     }
   }
 }
