@@ -3,6 +3,7 @@ import 'style/style.scss';
 import Header from 'components/header/Header';
 import Main from 'components/main/Main';
 import SideCta from 'components/side/SideCta';
+import Fleet from 'components/fleet/Fleet';
 import Service from 'components/service/Service';
 import About from 'components/about/About';
 import Contact from 'components/contact/Contact';
@@ -14,6 +15,7 @@ function App() {
       <Header />
       <Main />
       <SideCta />
+      <Fleet />
       <Service />
       <About />
       <Contact />

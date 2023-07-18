@@ -27,6 +27,8 @@
   &__desti {
     &-container {
       @include flex(flex-start, center, 4rem);
+      margin-bottom: 12rem;
+      margin-top: 21.7rem;
     }
 
     &-list {
@@ -34,16 +36,21 @@
       height: 11.5rem;
     }
 
+    &-icon {
+      width: 4.6rem;
+      height: 4.6rem;
+    }
+
     &-item {
       @include exo(700);
       font-size: 9rem;
       line-height: 11.5rem;
 
-      @for $i from 1 to 3 {
-        &:nth-child(#{$i}) {
-          @include slideUp(#{$i * 3}s);
-        }
-      }
+      // @for $i from 0 to 2 {
+      //   &:nth-child(#{$i}) {
+      //     @include slideUp($i);
+      //   }
+      // }
     }
   }
 }

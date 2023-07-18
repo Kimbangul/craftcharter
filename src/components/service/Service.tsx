@@ -1,3 +1,5 @@
+import { ReactComponent as ARROW } from 'assets/image/side/arrow.svg';
+
 const Service = () => {
   return (
     <section className='Service'>
@@ -8,6 +10,7 @@ const Service = () => {
             <li className='Service__desti-item'>TEB</li>
             <li className='Service__desti-item'>OPF</li>
           </ul>
+          <ARROW className='Service__desti-icon' />
           <ul className='Service__desti-list'>
             <li className='Service__desti-item'>VNY</li>
             <li className='Service__desti-item'>MYNN</li>
@@ -19,8 +22,10 @@ const Service = () => {
           <br /> to the world
         </h2>
         <p className='Service__desc'>
-          Get closer to your destination. With a host of flying locations, private airports and exclusive terminals - we’ll take the interruptions out of your
-          journey. Reliable luxury, wherever you fly.
+          Get closer to your destination. With a host of flying <br />
+          locations, private airports and exclusive terminals - <br />
+          we’ll take the interruptions out of your journey. Reliable <br />
+          luxury, wherever you fly.
         </p>
         <div className='Service__btn'>
           <a href='#'>Contact us</a>

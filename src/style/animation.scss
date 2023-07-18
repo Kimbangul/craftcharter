@@ -1,3 +1,15 @@
+@keyframes slide_up_ani {
+  0% {
+    transform: translateY(100%);
+  }
+  33.3% {
+    transform: translateY(0);
+  }
+  66.6% {
+    transform: translateY(-100%);
+  }
+}
+
 @mixin slideUp($delay: 0) {
   @keyframes slide_up_ani_#{$delay} {
     0% {
@@ -22,6 +34,7 @@
     }
   }
 
-  animation: slide_up_ani_#{$delay} 18s infinite;
-  animation-delay: $delay;
+  animation: slide_up_ani 9s infinite;
+  animation-delay: #{$delay * 3}s;
+  animation-direction: normal;
 }
