@@ -76,6 +76,7 @@
 
     a {
       @include btn-with-arrow($black);
+      text-transform: uppercase;
     }
   }
 }

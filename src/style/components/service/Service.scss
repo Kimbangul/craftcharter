@@ -1,0 +1,26 @@
+.Service {
+  padding: 0 2.4rem;
+  position: relative;
+  overflow: hidden;
+  max-width: $max-inner;
+  margin: 0 auto;
+
+  &__title {
+    @include sec-title;
+  }
+
+  &__desc {
+    @include sec-desc;
+    margin-top: 3rem;
+  }
+
+  &__btn {
+    @include flex(flex-start, center, 4rem);
+    margin-top: 6rem;
+    
+    a {
+      @include btn-with-arrow;
+      text-transform: uppercase;
+    }
+  }
+}
