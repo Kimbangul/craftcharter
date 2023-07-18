@@ -1,6 +1,7 @@
 import { ReactComponent as BTN_ARROW } from 'assets/image/common/btn-arrow.svg';
-import ABOUT_BG01 from 'assets/image/about/about_bg01.jpeg';
+import ABOUT_BG01 from 'assets/image/about/about_bg01.webp';
 import ABOUT_BG02 from 'assets/image/about/about_bg02.jpeg';
+import { ReactComponent as METER } from 'assets/image/about/meter.svg';
 
 const About = () => {
   return (
@@ -8,7 +9,7 @@ const About = () => {
       <div className='About__img-container' data-column='4'>
         <img src={ABOUT_BG01} alt='' />
       </div>
-      <div className='About__text-conatiner'>
+      <div className='About__text-container'>
         <h2 className='About__title'>We’re crafting the most exceptional experience in private aviation</h2>
         <div className='About__desc-container'>
           <p className='About__desc'>
@@ -23,6 +24,9 @@ const About = () => {
         <div className='About__btn'>
           <a href='#'>About Craft</a>
         </div>
+      </div>
+      <div className='About__svg-container'>
+        <METER />
       </div>
       <div className='About__img-container' data-column='2'>
         <img src={ABOUT_BG02} alt='' />

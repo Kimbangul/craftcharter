@@ -1,11 +1,20 @@
 .About {
-  padding: 20rem 0;
+  padding: 20rem 2.4rem;
   display: grid;
   grid-template-columns: 0 repeat(12, minmax(0, 1fr)) 0;
+  position: relative;
+  overflow: hidden;
+  max-width: $max-inner;
+  margin: 0 auto;
 
   &__text {
     &-container {
       grid-column: 7 / 11;
+      &__text {
+        &-container {
+          grid-column: 7 / 11;
+        }
+      }
     }
   }
 
@@ -35,15 +44,36 @@
 
       &:first-child {
         grid-column: 2 / span 4;
+        img {
+          height: 100%;
+        }
       }
 
       &:last-child {
+        @include flex;
         grid-column: -2/ 12;
+
+        img {
+          margin-top: auto;
+          margin-bottom: 0;
+        }
       }
     }
   }
 
+  &__svg {
+    &-container {
+      width: 26.5rem;
+      height: 13.1rem;
+      position: absolute;
+      right: -1.4rem;
+      top: 15rem;
+    }
+  }
+
   &__btn {
+    margin-top: 6rem;
+
     a {
       @include btn-with-arrow($black);
     }
