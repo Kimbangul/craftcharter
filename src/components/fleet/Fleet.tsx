@@ -20,19 +20,43 @@ const Fleet = () => {
       <h2 className='Fleet__title'>Hand-picked and leading edge</h2>
       <Swiper {...slideOption}>
         <SwiperSlide>
-          <div className='Fleet__img-container'>
-            <img src={CARD_01} alt='' />
-          </div>
+          <a href='#'>
+            <div className='Fleet__img-container'>
+              <img src={CARD_01} alt='' />
+            </div>
+            <div className='Fleet__item-text-container'>
+              <h3 className='Fleet__item-title'>
+                <span className='Fleet__item-text'>challenger </span>
+                <span className='Fleet__item-text--red'>350</span>
+              </h3>
+            </div>
+          </a>
         </SwiperSlide>
         <SwiperSlide>
-          <div className='Fleet__img-container'>
-            <img src={CARD_02} alt='' />
-          </div>
+          <a href='#'>
+            <div className='Fleet__img-container'>
+              <img src={CARD_02} alt='' />
+            </div>
+            <div className='Fleet__item-text-container'>
+              <h3 className='Fleet__item-title'>
+                <span className='Fleet__item-text'>gulfstream</span>
+                <span className='Fleet__item-text--red'>giv</span>
+              </h3>
+            </div>
+          </a>
         </SwiperSlide>
         <SwiperSlide>
-          <div className='Fleet__img-container'>
-            <img src={CARD_03} alt='' />
-          </div>
+          <a href='#'>
+            <div className='Fleet__img-container'>
+              <img src={CARD_03} alt='' />
+            </div>
+            <div className='Fleet__item-text-container'>
+              <h3 className='Fleet__item-title'>
+                <span className='Fleet__item-text'>gulfstream</span>
+                <span className='Fleet__item-text--red'>g550</span>
+              </h3>
+            </div>
+          </a>
         </SwiperSlide>
       </Swiper>
       <div className='Fleet__btn'>
