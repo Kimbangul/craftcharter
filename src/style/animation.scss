@@ -1,0 +1,27 @@
+@mixin slideUp($delay: 0) {
+  @keyframes slide_up_ani_#{$delay} {
+    0% {
+      transform: translateY(0);
+      opacity: 1;
+    }
+    25% {
+      transform: translateY(-100%);
+      opacity: 1;
+    }
+    50% {
+      transform: translateY(-100%);
+      opacity: 0;
+    }
+    75% {
+      transform: translateY(-100%);
+      opacity: 0;
+    }
+    69% {
+      transform: translateY(0%);
+      opacity: 0;
+    }
+  }
+
+  animation: slide_up_ani_#{$delay} 18s infinite;
+  animation-delay: $delay;
+}

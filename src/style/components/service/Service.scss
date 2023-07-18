@@ -17,10 +17,33 @@
   &__btn {
     @include flex(flex-start, center, 4rem);
     margin-top: 6rem;
-    
+
     a {
       @include btn-with-arrow;
       text-transform: uppercase;
+    }
+  }
+
+  &__desti {
+    &-container {
+      @include flex(flex-start, center, 4rem);
+    }
+
+    &-list {
+      overflow: hidden;
+      height: 11.5rem;
+    }
+
+    &-item {
+      @include exo(700);
+      font-size: 9rem;
+      line-height: 11.5rem;
+
+      @for $i from 1 to 3 {
+        &:nth-child(#{$i}) {
+          @include slideUp(#{$i * 3}s);
+        }
+      }
     }
   }
 }
