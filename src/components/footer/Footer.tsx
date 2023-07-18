@@ -1,5 +1,5 @@
 import Logo from 'components/common/logo/Logo';
-import { footerMenu, infoMenu } from 'components/footer/menu';
+import { footerMenu, infoMenu, socialMenu } from 'components/footer/menu';
 
 const Footer = () => {
   return (
@@ -34,7 +34,7 @@ const Footer = () => {
               </li>
             );
           })}
-          <li className='Footer__info-item'>© 2023 Craft</li>
+          <li className='Footer__info-copy'>© 2023 Craft</li>
         </ul>
       </div>
     </footer>

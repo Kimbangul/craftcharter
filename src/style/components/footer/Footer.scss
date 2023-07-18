@@ -43,7 +43,36 @@
     border-color: rgba(0, 0, 0, 0.1);
   }
 
+  &__info {
+    @include flex(flex-start, center, 2rem);
+    color: rgba(0, 0, 0, 0.6);
+    font-size: 1.3rem;
+
+    &-item {
+      @include flex(flex-start, center);
+      a {
+        display: inline-block;
+        text-decoration: underline;
+        text-decoration-color: transparent;
+        transition: text-decoration-color 0.3s;
+      }
+
+      &:hover {
+        a {
+          text-decoration-color: rgba(0, 0, 0, 0.6);
+        }
+      }
+
+      &:nth-child(2)::after {
+        content: '|';
+        margin-left: 2rem;
+        display: inline-block;
+      }
+    }
+  }
+
   &__bottom {
     @include inner_item();
+    margin-top: 2.5rem;
   }
 }

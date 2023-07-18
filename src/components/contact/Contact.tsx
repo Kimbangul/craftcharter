@@ -4,7 +4,7 @@ const Contact = () => {
   return (
     <section className='Contact'>
       <div className='Contact__text'>
-        <p>Proud to Craft your journey</p>
+        <h2 className='Contact__title'>Proud to Craft your journey</h2>
         <a className='Contact__btn--round' href='#'>
           contact us
         </a>
