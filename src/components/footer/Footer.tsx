@@ -23,9 +23,26 @@ const Footer = () => {
       </div>
       <hr />
       <div className='Footer__bottom'>
-        <ul className='Footer__social'>
-          <li></li>
-        </ul>
+        <div className='Footer__link-container'>
+          <ul className='Footer__social'>
+            {socialMenu.map((el) => {
+              return (
+                <li className='Footer__social-item'>
+                  <a href={el.link}>
+                    <>
+                      <span className='sound-only'>{el.title}</span>
+                      {<el.icon />}
+                    </>
+                  </a>
+                </li>
+              );
+            })}
+          </ul>
+          <a className='Footer__credit' href="#">
+            <span>Website credits</span>
+            <span>Crafted by Ryze</span>
+          </a>
+        </div>
         <ul className='Footer__info'>
           {infoMenu.map((el) => {
             return (
