@@ -1,0 +1,51 @@
+.About {
+  padding: 20rem 0;
+  display: grid;
+  grid-template-columns: 0 repeat(12, minmax(0, 1fr)) 0;
+
+  &__text {
+    &-container {
+      grid-column: 7 / 11;
+    }
+  }
+
+  &__title {
+    @include sec-title;
+  }
+
+  &__desc {
+    &-container {
+      margin-top: 3rem;
+    }
+
+    @include sec-desc;
+    margin-top: 3rem;
+
+    &:first-child {
+      margin-top: 0;
+    }
+  }
+
+  &__img {
+    &-container {
+      img {
+        width: 100%;
+        object-fit: cover;
+      }
+
+      &:first-child {
+        grid-column: 2 / span 4;
+      }
+
+      &:last-child {
+        grid-column: -2/ 12;
+      }
+    }
+  }
+
+  &__btn {
+    a {
+      @include btn-with-arrow($black);
+    }
+  }
+}

@@ -14,16 +14,35 @@
   flex-direction: $dir;
 }
 
-@mixin btn-rounded($color: '#fff', $hover: '#000') {
-  @include flex(center, center);
-  @include exo(400);
+@mixin btn-with-arrow($color: $black) {
+  @include flex(flex-start, center);
+  @include exo(600);
   display: inline-flex;
   cursor: pointer;
+  font-size: 1.6rem;
+  color: $color;
+  white-space: nowrap;
+
+  &::after {
+    content: url('../assets/image/common/btn-arrow.svg');
+    width: 2rem;
+    display: inline-block;
+    margin-left: 2rem;
+    transition: transform 0.3s;
+  }
+
+  &:hover::after {
+    transform: translateX(0.6rem);
+  }
+}
+
+@mixin btn-rounded($color: $white, $hover: $black) {
+  // @include flex(center, center);
+  @include exo(400);
+  @include btn-with-arrow($color);
   padding: 0 3rem;
   height: 4rem;
   border: 0.1rem solid $color;
-  font-size: 1.6rem;
-  color: $color;
   background: transparent;
   transition:
     background 0.3s,
@@ -34,4 +53,19 @@
     background: $color;
     color: $hover;
   }
+
+  &::after {
+    display: none;
+  }
+}
+
+@mixin sec-title() {
+  font-size: 4rem;
+  font-weight: 500;
+}
+
+@mixin sec-desc() {
+  font-weight: 400;
+  color: rgba(0, 0, 0, 0.6);
+  line-height: 1.8em;
 }
