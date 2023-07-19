@@ -1,24 +1,95 @@
 .Introduce {
+  $Introduce: &;
   min-height: 100vh;
   background: $black;
   padding-bottom: 10rem;
   border-bottom: 1px solid hsla(0, 0%, 100%, 0.1);
 
+  @mixin fade-transition($s) {
+    transition:
+      opacity #{$s}s,
+      transform #{$s}s;
+  }
+
   &__title {
     @include sec-title;
+    @include fade-transition(0);
     color: $white;
   }
 
   &__desc {
     @include sec-desc;
+    @include fade-transition(0);
     color: hsla(0, 0%, 100%, 0.6);
     margin-top: 3rem;
+    opacity: 0;
   }
 
   &__btn {
+    @include fade-transition(0);
     margin-top: 6rem;
+    opacity: 0;
     a {
       @include btn-with-arrow($white);
+    }
+  }
+
+  &__slider {
+    max-width: $max-inner;
+    margin: 0 auto;
+    overflow-x: visible;
+  }
+
+  &__slide {
+    opacity: 0;
+    transition: opacity 0.3s;
+
+    &.swiper-slide-active {
+      opacity: 1;
+      #{$Introduce}__title {
+        transform: translateX(0%);
+        @include fade-transition(0.7);
+      }
+
+      #{$Introduce}__desc {
+        transform: translateX(0%);
+        opacity: 1;
+        @include fade-transition(0.7);
+      }
+
+      #{$Introduce}__btn {
+        transform: translateX(0%);
+        opacity: 1;
+        @include fade-transition(0.7);
+      }
+    }
+
+    &.swiper-slide-prev {
+      #{$Introduce}__title {
+        transform: translateX(-50%);
+      }
+
+      #{$Introduce}__desc {
+        transform: translateX(-10%);
+      }
+
+      #{$Introduce}__btn {
+        transform: translateX(-5%);
+      }
+    }
+
+    &.swiper-slide-next {
+      #{$Introduce}__title {
+        transform: translateX(50%);
+      }
+
+      #{$Introduce}__desc {
+        transform: translateX(10%);
+      }
+
+      #{$Introduce}__btn {
+        transform: translateX(5%);
+      }
     }
   }
 }
