@@ -1,0 +1,24 @@
+.Introduce {
+  min-height: 100vh;
+  background: $black;
+  padding-bottom: 10rem;
+  border-bottom: 1px solid hsla(0, 0%, 100%, 0.1);
+
+  &__title {
+    @include sec-title;
+    color: $white;
+  }
+
+  &__desc {
+    @include sec-desc;
+    color: hsla(0, 0%, 100%, 0.6);
+    margin-top: 3rem;
+  }
+
+  &__btn {
+    margin-top: 6rem;
+    a {
+      @include btn-with-arrow($white);
+    }
+  }
+}
