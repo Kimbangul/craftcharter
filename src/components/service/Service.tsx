@@ -1,26 +1,25 @@
 import { ReactComponent as ARROW } from 'assets/image/side/arrow.svg';
-import { Swiper, SwiperSlide } from 'swiper/react';
+import { Swiper, SwiperSlide, SwiperProps, SwiperRef } from 'swiper/react';
+import { SwiperOptions } from 'swiper/types/swiper-options';
+import { Autoplay } from 'swiper/modules';
+import { textSlideOption, textSlideDelayOption } from 'components/service/slideOption';
 
 const Service = () => {
   return (
     <section className='Service'>
       <div className='Service__text-container'>
         <div className='Service__desti-container'>
-          <div className='Service__desti-list'>
-            <ul className='Service__desti-inner'>
-              <li className='Service__desti-item'>ASE</li>
-              <li className='Service__desti-item'>TEB</li>
-              <li className='Service__desti-item'>OPF</li>
-            </ul>
-          </div>
+          <Swiper {...textSlideOption}>
+            <SwiperSlide className='Service__desti-item'>ASE</SwiperSlide>
+            <SwiperSlide className='Service__desti-item'>TEB</SwiperSlide>
+            <SwiperSlide className='Service__desti-item'>OPF</SwiperSlide>
+          </Swiper>
           <ARROW className='Service__desti-icon' />
-          <div className='Service__desti-list'>
-            <ul className='Service__desti-inner'>
-              <li className='Service__desti-item'>VNY</li>
-              <li className='Service__desti-item'>MYNN</li>
-              <li className='Service__desti-item'>EGGW</li>
-            </ul>
-          </div>
+          <Swiper {...textSlideDelayOption}>
+            <SwiperSlide className='Service__desti-item'>VNY</SwiperSlide>
+            <SwiperSlide className='Service__desti-item'>MYNN</SwiperSlide>
+            <SwiperSlide className='Service__desti-item'>EGGW</SwiperSlide>
+          </Swiper>
         </div>
         <h2 className='Service__title'>
           From North America
