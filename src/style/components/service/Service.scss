@@ -43,9 +43,46 @@
     }
 
     &-item {
-      @include exo(700);
-      font-size: 9rem;
+      @include exo(600);
+      font-size: 10rem;
       line-height: 11.5rem;
+    }
+  }
+
+  &__text {
+    &-container {
+      width: 50%;
+      margin: 0 auto;
+    }
+  }
+
+  &__img {
+    &-container {
+      position: absolute;
+      z-index: 1;
+      overflow: hidden;
+      &:nth-child(2) {
+        width: 16.66%;
+        height: 44.4rem;
+        top: 0;
+        left: 0;
+      }
+      &:nth-child(3) {
+        width: 33.3%;
+        height: 33.4rem;
+        right: 0;
+        bottom: 20%;
+      }
+      img {
+        width: 100%;
+        object-fit: cover;
+        height: 100%;
+      }
+    }
+
+    &-item {
+      height: 100% !important;
+      align-self: stretch;
     }
   }
 }

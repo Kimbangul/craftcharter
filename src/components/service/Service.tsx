@@ -1,8 +1,14 @@
 import { ReactComponent as ARROW } from 'assets/image/side/arrow.svg';
-import { Swiper, SwiperSlide, SwiperProps, SwiperRef } from 'swiper/react';
-import { SwiperOptions } from 'swiper/types/swiper-options';
-import { Autoplay } from 'swiper/modules';
-import { textSlideOption, textSlideDelayOption } from 'components/service/slideOption';
+import { Swiper, SwiperSlide } from 'swiper/react';
+import { textSlideOption, textSlideDelayOption, imgSlideOption, imgSlideDelayOption } from 'components/service/slideOption';
+
+import SERVICE_LEFT_IMG01 from 'assets/image/service/service_left_01.webp';
+import SERVICE_LEFT_IMG02 from 'assets/image/service/service_left_02.webp';
+import SERVICE_LEFT_IMG03 from 'assets/image/service/service_left_03.webp';
+import SERVICE_RIGHT_IMG01 from 'assets/image/service/service_right_01.webp';
+import SERVICE_RIGHT_IMG02 from 'assets/image/service/service_right_02.webp';
+import SERVICE_RIGHT_IMG03 from 'assets/image/service/service_right_03.webp';
+import 'swiper/css/effect-fade';
 
 const Service = () => {
   return (
@@ -35,6 +41,32 @@ const Service = () => {
           <a href='#'>Contact us</a>
           <a href='#'>Our Services</a>
         </div>
+      </div>
+      <div className='Service__img-container'>
+        <Swiper {...imgSlideOption}>
+          <SwiperSlide className='Service__img-item'>
+            <img src={SERVICE_LEFT_IMG01} alt='' />
+          </SwiperSlide>
+          <SwiperSlide className='Service__img-item'>
+            <img src={SERVICE_LEFT_IMG02} alt='' />
+          </SwiperSlide>
+          <SwiperSlide className='Service__img-item'>
+            <img src={SERVICE_LEFT_IMG03} alt='' />
+          </SwiperSlide>
+        </Swiper>
+      </div>
+      <div className='Service__img-container'>
+        <Swiper {...imgSlideDelayOption}>
+          <SwiperSlide className='Service__img-item'>
+            <img src={SERVICE_RIGHT_IMG01} alt='' />
+          </SwiperSlide>
+          <SwiperSlide className='Service__img-item'>
+            <img src={SERVICE_RIGHT_IMG02} alt='' />
+          </SwiperSlide>
+          <SwiperSlide className='Service__img-item'>
+            <img src={SERVICE_RIGHT_IMG03} alt='' />
+          </SwiperSlide>
+        </Swiper>
       </div>
     </section>
   );

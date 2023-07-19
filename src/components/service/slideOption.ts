@@ -1,8 +1,11 @@
 import { SwiperProps } from 'swiper/react';
 import { SwiperOptions } from 'swiper/types/swiper-options';
-import { Autoplay } from 'swiper/modules';
+import { Autoplay, EffectFade } from 'swiper/modules';
 
-export const textSlideOption: SwiperProps & SwiperOptions = {
+// NOTE type
+export type SlideOptionType = SwiperProps & SwiperOptions;
+
+export const textSlideOption: SlideOptionType = {
   direction: 'vertical',
   autoplay: {
     disableOnInteraction: false,
@@ -13,6 +16,19 @@ export const textSlideOption: SwiperProps & SwiperOptions = {
   loop: true,
   modules: [Autoplay],
   allowTouchMove: false,
+};
+
+export const imgSlideOption: SlideOptionType = {
+  modules: [Autoplay, EffectFade],
+  effect: 'fade',
+  allowTouchMove: false,
+  autoplay: {
+    disableOnInteraction: false,
+    delay: 3000,
+  },
+  speed: 1200,
+  loop: true,
+  className: 'Service__img-slide',
 };
 
 export const delayOption: SwiperProps = {
@@ -30,5 +46,10 @@ export const delayOption: SwiperProps = {
 
 export const textSlideDelayOption = {
   ...textSlideOption,
+  ...delayOption,
+};
+
+export const imgSlideDelayOption = {
+  ...imgSlideOption,
   ...delayOption,
 };
