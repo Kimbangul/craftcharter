@@ -4,7 +4,7 @@ import { LogoPropsType } from 'components/common/logo/type';
 const Logo: React.FC<LogoPropsType> = (props) => {
   return (
     <div className='Logo'>
-      <a href='#'>
+      <a href='/'>
         <LOGOIMG fill={props.fill && props.fill} />
       </a>
     </div>
