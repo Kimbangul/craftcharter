@@ -36,7 +36,6 @@ export const delayOption: SwiperProps = {
     const startSlide = () => {
       if (!swiper.autoplay) return;
       swiper.autoplay.start();
-      console.log(swiper.autoplay);
     };
 
     setTimeout(startSlide, 1500);

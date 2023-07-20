@@ -3,7 +3,7 @@
   @include flex(center, center);
   min-height: 100vh;
   background: $black;
-  padding-bottom: 10rem;
+  padding: 10rem 0;
   border-bottom: 1px solid hsla(0, 0%, 100%, 0.1);
 
   @mixin fade-transition($s) {
@@ -13,29 +13,31 @@
   }
 
   &__inner {
-    @include flex(space-betweenn, center);
+    @include flex(space-between, center);
     max-width: $max-inner;
     margin: 0 auto;
     overflow: hidden;
+    flex: 1 0 0;
   }
 
   &__title {
     @include sec-title;
-    @include fade-transition(1);
+    @include fade-transition(0.7);
     opacity: 0;
     color: $white;
   }
 
   &__desc {
     @include sec-desc;
-    @include fade-transition(1);
+    @include fade-transition(0.7);
     color: hsla(0, 0%, 100%, 0.6);
     margin-top: 3rem;
     opacity: 0;
+    padding-right: 14rem;
   }
 
   &__btn {
-    @include fade-transition(1.2);
+    @include fade-transition(0.7);
     margin-top: 6rem;
     opacity: 0;
     text-transform: uppercase;
@@ -45,11 +47,10 @@
   }
 
   &__slider {
-    width: 50%;
-    margin: 0 auto;
     overflow-x: visible !important;
-    margin-left: 16.66%;
     text-align: right;
+    padding: 0 8% !important;
+    width: 50%;
 
     .swiper-button {
       @mixin btnStyle {
@@ -83,29 +84,26 @@
       #{$Introduce}__title {
         opacity: 1;
         transform: translateX(0%);
-        @include fade-transition(1);
       }
 
       #{$Introduce}__desc {
         transform: translateX(0%);
         opacity: 1;
-        @include fade-transition(1);
       }
 
       #{$Introduce}__btn {
         transform: translateX(0%);
         opacity: 1;
-        @include fade-transition(1.2);
       }
     }
 
     &.swiper-slide-prev {
       #{$Introduce}__title {
-        transform: translateX(-20%);
+        transform: translateX(-50%);
       }
 
       #{$Introduce}__desc {
-        transform: translateX(-5%);
+        transform: translateX(-8%);
       }
 
       #{$Introduce}__btn {
@@ -115,11 +113,11 @@
 
     &.swiper-slide-next {
       #{$Introduce}__title {
-        transform: translateX(20%);
+        transform: translateX(50%);
       }
 
       #{$Introduce}__desc {
-        transform: translateX(5%);
+        transform: translateX(8%);
       }
 
       #{$Introduce}__btn {
@@ -134,6 +132,7 @@
       width: 48rem;
       height: 60rem;
       overflow: hidden;
+      z-index: 4;
     }
 
     position: absolute;
