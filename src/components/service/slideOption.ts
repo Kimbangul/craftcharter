@@ -33,11 +33,10 @@ export const imgSlideOption: SlideOptionType = {
 
 export const delayOption: SwiperProps = {
   onInit: (swiper) => {
-    swiper.autoplay.stop();
-
     const startSlide = () => {
       if (!swiper.autoplay) return;
       swiper.autoplay.start();
+      console.log(swiper.autoplay);
     };
 
     setTimeout(startSlide, 1500);
@@ -51,5 +50,6 @@ export const textSlideDelayOption = {
 
 export const imgSlideDelayOption = {
   ...imgSlideOption,
+  autoplay: false,
   ...delayOption,
 };

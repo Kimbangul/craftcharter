@@ -29,6 +29,8 @@
       @include flex(flex-start, center, 4rem);
       margin-bottom: 12rem;
       margin-top: 21.7rem;
+      position: relative;
+      z-index: 3;
     }
 
     &-list {

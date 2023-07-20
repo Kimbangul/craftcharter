@@ -1,5 +1,16 @@
 import { SwiperProps } from 'swiper/react';
 import { SwiperOptions } from 'swiper/types/swiper-options';
-import { Autoplay, EffectFade } from 'swiper/modules';
+import { Autoplay, EffectFade, EffectCreative, Navigation } from 'swiper/modules';
+import { SlideOptionType } from 'components/common/type';
 
-const slideOption = {};
+export const slideOption: SlideOptionType = {
+  modules: [Navigation, EffectFade],
+  speed: 1200,
+  allowTouchMove: false,
+  navigation: true,
+};
+
+export const cardOption: SlideOptionType = {
+  modules: [EffectCreative],
+  allowTouchMove: false,
+};

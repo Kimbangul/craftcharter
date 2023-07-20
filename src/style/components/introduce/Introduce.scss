@@ -1,5 +1,6 @@
 .Introduce {
   $Introduce: &;
+  @include flex(center, center);
   min-height: 100vh;
   background: $black;
   padding-bottom: 10rem;
@@ -11,85 +12,133 @@
       transform #{$s}s;
   }
 
+  &__inner {
+    @include flex(space-betweenn, center);
+    max-width: $max-inner;
+    margin: 0 auto;
+    overflow: hidden;
+  }
+
   &__title {
     @include sec-title;
-    @include fade-transition(0);
+    @include fade-transition(1);
+    opacity: 0;
     color: $white;
   }
 
   &__desc {
     @include sec-desc;
-    @include fade-transition(0);
+    @include fade-transition(1);
     color: hsla(0, 0%, 100%, 0.6);
     margin-top: 3rem;
     opacity: 0;
   }
 
   &__btn {
-    @include fade-transition(0);
+    @include fade-transition(1.2);
     margin-top: 6rem;
     opacity: 0;
+    text-transform: uppercase;
     a {
       @include btn-with-arrow($white);
     }
   }
 
   &__slider {
-    max-width: $max-inner;
+    width: 50%;
     margin: 0 auto;
-    overflow-x: visible;
+    overflow-x: visible !important;
+    margin-left: 16.66%;
+    text-align: right;
+
+    .swiper-button {
+      @mixin btnStyle {
+        transition-delay: opacity 1s;
+        margin: 0;
+        position: static;
+        display: inline-flex;
+      }
+
+      &-prev {
+        @include nav-btn();
+        @include btnStyle();
+        transform: rotateZ(90deg) rotateY(180deg);
+      }
+
+      &-next {
+        @include btnStyle();
+        @include nav-btn();
+        transform: rotateZ(-90deg);
+        margin-left: 2rem;
+      }
+    }
   }
 
   &__slide {
-    opacity: 0;
     transition: opacity 0.3s;
+    text-align: left;
 
     &.swiper-slide-active {
       opacity: 1;
       #{$Introduce}__title {
+        opacity: 1;
         transform: translateX(0%);
-        @include fade-transition(0.7);
+        @include fade-transition(1);
       }
 
       #{$Introduce}__desc {
         transform: translateX(0%);
         opacity: 1;
-        @include fade-transition(0.7);
+        @include fade-transition(1);
       }
 
       #{$Introduce}__btn {
         transform: translateX(0%);
         opacity: 1;
-        @include fade-transition(0.7);
+        @include fade-transition(1.2);
       }
     }
 
     &.swiper-slide-prev {
       #{$Introduce}__title {
-        transform: translateX(-50%);
+        transform: translateX(-20%);
       }
 
       #{$Introduce}__desc {
-        transform: translateX(-10%);
+        transform: translateX(-5%);
       }
 
       #{$Introduce}__btn {
-        transform: translateX(-5%);
+        transform: translateX(-3%);
       }
     }
 
     &.swiper-slide-next {
       #{$Introduce}__title {
-        transform: translateX(50%);
+        transform: translateX(20%);
       }
 
       #{$Introduce}__desc {
-        transform: translateX(10%);
+        transform: translateX(5%);
       }
 
       #{$Introduce}__btn {
-        transform: translateX(5%);
+        transform: translateX(3%);
       }
     }
+  }
+
+  &__img {
+    &-container {
+      position: relative;
+      width: 48rem;
+      height: 60rem;
+      overflow: hidden;
+    }
+
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
   }
 }

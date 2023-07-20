@@ -44,22 +44,6 @@
     }
 
     &-button {
-      @mixin nav-btn {
-        width: 6rem;
-        height: 6rem;
-        transition: opacity 0.3s;
-
-        &.swiper-button-disabled {
-          opacity: 0.4;
-        }
-
-        &::after {
-          content: url('../../../assets/image/main/arrow-down.svg');
-          display: inline-block;
-          width: 100%;
-          height: 100%;
-        }
-      }
       &-prev {
         @include nav-btn();
         transform: rotateZ(90deg) rotateY(180deg);
