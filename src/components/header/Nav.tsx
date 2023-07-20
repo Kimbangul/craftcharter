@@ -1,5 +1,5 @@
 import Logo from 'components/common/logo/Logo';
-import {menu, info} from 'components/header/menu';
+import { menu, info } from 'components/header/menu';
 import { ReactComponent as CLOSE } from 'assets/image/common/close.svg';
 import MENU01 from 'assets/image/header/menu01.webp';
 
@@ -28,19 +28,19 @@ const Nav = () => {
             );
           })}
         </ul>
+        <div className='Nav__footer'>
+          <ul className='Nav__footer-info'>
+            {info.map((el) => {
+              return (
+                <li className='Nav__footer-info-item'>
+                  <a href={el.link}>{el.title}</a>
+                </li>
+              );
+            })}
+            <li className='Nav__footer-info-copy'>© 2023 Craft</li>
+          </ul>
+        </div>
       </nav>
-      <div className='Nav__footer'>
-        <ul className='Nav__footer-info'>
-          {info.map((el) => {
-            return (
-              <li className='Nav__footer-info-item'>
-                <a href={el.link}>{el.title}</a>
-              </li>
-            );
-          })} 
-           <li className='Nav__footer-info-copy'>© 2023 Craft</li>
-        </ul>
-      </div>
     </div>
   );
 };

@@ -9,18 +9,17 @@
 
   &__inner {
     display: grid;
+    height: 100%;
+    grid-template: 'a a' auto 'b c' 1fr 'd d' auto;
     grid-template-columns: 1fr 1fr;
-    grid-template-rows: 1fr auto 1fr;
+    grid-template-rows: auto 1fr auto;
   }
 
   &__header {
     @extend .Header__inner;
     padding-bottom: 3.5rem;
     width: 100%;
-    // position: absolute;
-    // top: 0;
-    // left: 50%;
-    // transform: translateX(-50%);
+    grid-area: a;
   }
 
   &__btn {
@@ -48,7 +47,10 @@
 
   &__menu {
     &-list {
+      @include flex(center, stretch, 0, column);
       padding: 0 4rem;
+      width: 100%;
+      grid-area: c;
     }
     &-item {
       a {
@@ -56,17 +58,15 @@
         font-size: 3.2rem;
         text-transform: uppercase;
       }
-
-      // &:hover{
-      //   a{}
-      // }
     }
   }
 
   &__img {
     &-container {
+      @include flex(center, center);
       width: 100%;
       padding-right: 15.5rem;
+      grid-area: b;
 
       img {
         width: 100%;
@@ -76,5 +76,23 @@
 
   &__footer {
     padding: 0 6rem 6rem 6rem;
+    grid-area: d;
+
+    &-info {
+      @extend .Footer__info;
+
+      &-item {
+        @extend .Footer__info-item;
+
+        &:nth-child(2)::after {
+          display: none !important;
+        }
+        &:nth-child(3)::after {
+          content: '|';
+          margin-left: 2rem;
+          display: inline-block;
+        }
+      }
+    }
   }
 }
