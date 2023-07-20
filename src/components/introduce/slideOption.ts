@@ -16,13 +16,17 @@ export const cardOption: SlideOptionType = {
   allowTouchMove: false,
   grabCursor: true,
   effect: 'creative',
+  watchSlidesProgress: true,
   creativeEffect: {
+    limitProgress: 4,
     prev: {
       shadow: true,
-      translate: [0, 0, -400],
+      translate: ['50%', 0, 300],
+      opacity: 0,
     },
     next: {
-      translate: ['100%', 0, 0],
+      translate: ['-40%', 0, -300],
+      opacity: 0.6,
     },
   },
 };

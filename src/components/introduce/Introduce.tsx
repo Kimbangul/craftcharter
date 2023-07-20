@@ -1,6 +1,5 @@
 import { useState, useEffect, useRef } from 'react';
 import { Swiper, SwiperRef, SwiperSlide } from 'swiper/react';
-import { Swiper as SwiperType } from 'swiper/types';
 import { slideOption, cardOption } from 'components/introduce/slideOption';
 
 import CARD01 from 'assets/image/introduce/card01.jpeg';
@@ -11,15 +10,11 @@ const Introduce = () => {
   const [activeIdx, setActiveIdx] = useState<number>(0);
   const imgRef = useRef<null | SwiperRef>(null);
 
+  // FUNCTION 슬라이드 동기화
   useEffect(() => {
-    console.log(activeIdx);
-
     if (!imgRef.current) return;
     imgRef.current.swiper.slideTo(activeIdx, 1000);
-    console.log(imgRef.current?.swiper.activeIndex);
   }, [activeIdx]);
-
-  // FUNCTION
 
   return (
     <section className='Introduce'>
@@ -70,14 +65,14 @@ const Introduce = () => {
           </SwiperSlide>
         </Swiper>
         <Swiper ref={imgRef} className='Introduce__img-container' {...cardOption}>
-          <SwiperSlide>
-            <img className='Introduce__img' src={CARD01} alt='' />
+          <SwiperSlide className='Introduce__img'>
+            <img src={CARD01} alt='' />
           </SwiperSlide>
-          <SwiperSlide>
-            <img className='Introduce__img' src={CARD02} alt='' />
+          <SwiperSlide className='Introduce__img'>
+            <img src={CARD02} alt='' />
           </SwiperSlide>
-          <SwiperSlide>
-            <img className='Introduce__img' src={CARD03} alt='' />
+          <SwiperSlide className='Introduce__img'>
+            <img src={CARD03} alt='' />
           </SwiperSlide>
         </Swiper>
       </div>
