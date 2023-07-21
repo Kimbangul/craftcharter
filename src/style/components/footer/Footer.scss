@@ -75,26 +75,26 @@
     @include flex(flex-start, center, 6rem);
   }
 
-  &__credit {
-    height: 2.4rem;
-    overflow: hidden;
+  // &__credit {
+  //   height: 2.4rem;
+  //   overflow: hidden;
 
-    span {
-      display: block;
-      height: 100%;
-      height: 2.4rem;
-      transform: translateY(0);
-      transition: transform 0.3s;
-      color: rgba(0, 0, 0, 0.5);
-      font-size: 1.3rem;
-    }
+  //   span {
+  //     display: block;
+  //     height: 100%;
+  //     height: 2.4rem;
+  //     transform: translateY(0);
+  //     transition: transform 0.3s;
+  //     color: rgba(0, 0, 0, 0.5);
+  //     font-size: 1.3rem;
+  //   }
 
-    &:hover {
-      span {
-        transform: translateY(-100%);
-      }
-    }
-  }
+  //   &:hover {
+  //     span {
+  //       transform: translateY(-100%);
+  //     }
+  //   }
+  // }
 
   &__bottom {
     @include inner_item();
@@ -102,7 +102,7 @@
     margin-top: 2.5rem;
   }
 
-  &__social {
-    @include flex(flex-start, center, 2.4rem);
-  }
+  // &__social {
+  //   @include flex(flex-start, center, 2.4rem);
+  // }
 }

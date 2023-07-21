@@ -39,21 +39,3 @@ export const infoMenu = [
     link: '#',
   },
 ];
-
-export const socialMenu = [
-  {
-    title: 'instagram',
-    icon: SOCIAL_INSTA,
-    link: '#',
-  },
-  {
-    title: 'linkdin',
-    icon: SOCIAL_LINK,
-    link: '#',
-  },
-  {
-    title: 'facebook',
-    icon: SOCIAL_FB,
-    link: '#',
-  },
-];

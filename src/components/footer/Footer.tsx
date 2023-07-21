@@ -1,5 +1,6 @@
 import Logo from 'components/common/logo/Logo';
-import { footerMenu, infoMenu, socialMenu } from 'components/footer/menu';
+import { footerMenu, infoMenu } from 'components/footer/menu';
+import { Social, Credit } from 'components/common/social/Social';
 
 const Footer = () => {
   return (
@@ -24,24 +25,8 @@ const Footer = () => {
       <hr />
       <div className='Footer__bottom'>
         <div className='Footer__link-container'>
-          <ul className='Footer__social'>
-            {socialMenu.map((el) => {
-              return (
-                <li className='Footer__social-item'>
-                  <a href={el.link}>
-                    <>
-                      <span className='sound-only'>{el.title}</span>
-                      {<el.icon />}
-                    </>
-                  </a>
-                </li>
-              );
-            })}
-          </ul>
-          <a className='Footer__credit' href="#">
-            <span>Website credits</span>
-            <span>Crafted by Ryze</span>
-          </a>
+          <Social />
+          <Credit />
         </div>
         <ul className='Footer__info'>
           {infoMenu.map((el) => {
