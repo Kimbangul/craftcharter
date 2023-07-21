@@ -2,16 +2,21 @@ import Logo from 'components/common/logo/Logo';
 import { menu, info } from 'components/header/menu';
 import { Social, Credit } from 'components/common/social/Social';
 
+import { NavPropsType } from 'components/header/type';
 import { ReactComponent as CLOSE } from 'assets/image/common/close.svg';
 import MENU01 from 'assets/image/header/menu01.webp';
 
-const Nav = () => {
+const Nav: React.FC<NavPropsType> = ({ open, setOpen }) => {
+  const onClickNavBtn = () => {
+    setOpen(false);
+  };
+
   return (
-    <div className='Nav'>
+    <div className={`Nav ${open && `open`}`}>
       <nav className='Nav__inner'>
         <div className='Nav__header'>
           <Logo fill='#000' />
-          <button className='Nav__btn--nav'>
+          <button className='Nav__btn--nav' onClick={onClickNavBtn}>
             <CLOSE />
           </button>
           <a href='#' className='Nav__btn--contact'>
