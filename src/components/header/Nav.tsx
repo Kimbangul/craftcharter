@@ -1,12 +1,15 @@
+import { useState } from 'react';
 import Logo from 'components/common/logo/Logo';
 import { menu, info } from 'components/header/menu';
 import { Social, Credit } from 'components/common/social/Social';
+import NavBgImg from 'components/header/NavBgImg';
 
 import { NavPropsType } from 'components/header/type';
 import { ReactComponent as CLOSE } from 'assets/image/common/close.svg';
-import MENU01 from 'assets/image/header/menu01.webp';
 
 const Nav: React.FC<NavPropsType> = ({ open, setOpen }) => {
+  const [activeMenu, setActiveMenu] = useState<number>(0);
+
   const onClickNavBtn = () => {
     setOpen(false);
   };
@@ -23,14 +26,12 @@ const Nav: React.FC<NavPropsType> = ({ open, setOpen }) => {
             contact
           </a>
         </div>
-        <div className='Nav__img-container'>
-          <img src={MENU01} alt='' />
-        </div>
+        <NavBgImg active={activeMenu} />
         <div className='Nav__menu-container'>
           <ul className='Nav__menu-list'>
-            {menu.map((el) => {
+            {menu.map((el, idx) => {
               return (
-                <li className='Nav__menu-item'>
+                <li className='Nav__menu-item' onMouseEnter={() => setActiveMenu(idx + 1)} onMouseLeave={() => setActiveMenu(0)}>
                   <a href={el.link}>{el.title}</a>
                 </li>
               );
