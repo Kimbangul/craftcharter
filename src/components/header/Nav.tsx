@@ -26,15 +26,17 @@ const Nav: React.FC<NavPropsType> = ({ open, setOpen }) => {
         <div className='Nav__img-container'>
           <img src={MENU01} alt='' />
         </div>
-        <ul className='Nav__menu-list'>
-          {menu.map((el) => {
-            return (
-              <li className='Nav__menu-item'>
-                <a href={el.link}>{el.title}</a>
-              </li>
-            );
-          })}
-        </ul>
+        <div className='Nav__menu-container'>
+          <ul className='Nav__menu-list'>
+            {menu.map((el) => {
+              return (
+                <li className='Nav__menu-item'>
+                  <a href={el.link}>{el.title}</a>
+                </li>
+              );
+            })}
+          </ul>
+        </div>
         <div className='Nav__footer'>
           <div className='Nav__link-container'>
             <Social />

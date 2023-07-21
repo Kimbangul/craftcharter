@@ -77,18 +77,43 @@
   }
 
   &__menu {
-    &-list {
+    &-container {
       @include flex(center, stretch, 0, column);
       padding: 0 4rem;
-      width: 100%;
       grid-area: c;
     }
+    &-list {
+      width: 100%;
+      &:hover {
+        #{$Nav}__menu-item {
+          color: rgba(0, 0, 0, 0.1);
+        }
+      }
+    }
     &-item {
-      opacity: 0;
       a {
+        @include flex(flex-start, flex-start, 2.6rem);
         padding: 1rem 0;
         font-size: 3.2rem;
         text-transform: uppercase;
+        transition: color 0.3s;
+        &::after {
+          // display: inline-flex;
+          // justify-content: center;
+          // align-items: end;
+          content: url('../../../assets/image/header/menu_arrow.svg');
+          width: 3.2rem;
+          height: 1.2rem;
+          opacity: 0;
+          transition: opacity 0.2s;
+        }
+
+        &:hover {
+          color: $black !important;
+          &::after {
+            opacity: 1;
+          }
+        }
       }
     }
   }
