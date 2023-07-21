@@ -1,5 +1,7 @@
 import Logo from 'components/common/logo/Logo';
 import { menu, info } from 'components/header/menu';
+import { Social, Credit } from 'components/common/social/Social';
+
 import { ReactComponent as CLOSE } from 'assets/image/common/close.svg';
 import MENU01 from 'assets/image/header/menu01.webp';
 
@@ -29,6 +31,10 @@ const Nav = () => {
           })}
         </ul>
         <div className='Nav__footer'>
+          <div className='Nav__link-container'>
+            <Social />
+            <Credit />
+          </div>
           <ul className='Nav__footer-info'>
             {info.map((el) => {
               return (
