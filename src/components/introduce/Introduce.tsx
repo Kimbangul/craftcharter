@@ -9,6 +9,7 @@ import CARD03 from 'assets/image/introduce/card03.jpeg';
 const Introduce = () => {
   const [activeIdx, setActiveIdx] = useState<number>(0);
   const imgRef = useRef<null | SwiperRef>(null);
+  const sectionRef = useRef<null | HTMLDivElement>(null);
 
   // FUNCTION 슬라이드 동기화
   useEffect(() => {
@@ -16,8 +17,50 @@ const Introduce = () => {
     imgRef.current.swiper.slideTo(activeIdx, 1000);
   }, [activeIdx]);
 
+  // FUNCTION 스크롤 감지 시 실행
+  const onScrollMain = (e: Event | WheelEvent) => {
+    if (e instanceof WheelEvent && e.deltaY < 0) {
+      scrollToPrev();
+    }
+  };
+
+  // FUNCTION intersection Observer 콜백 함수
+  const onObserveMain = (entry: IntersectionObserverEntry[]) => {
+    // console.log(entry[0].intersectionRatio);
+    if (entry[0].intersectionRatio <= 0) {
+      document.removeEventListener('wheel', onScrollMain);
+    } else if (entry[0].intersectionRatio >= 0.8) {
+      document.addEventListener('wheel', onScrollMain);
+    }
+  };
+
+  const mainObserver = new IntersectionObserver(
+    (entry) => {
+      onObserveMain(entry);
+    },
+    {
+      root: null,
+      rootMargin: '0px',
+      threshold: [1.0, 0.8, 0.6, 0.4, 0.2, 0],
+    }
+  );
+
+  // FUNCTION 이전 section으로 scroll
+  const scrollToPrev = () => {
+    const main = document.querySelector('.Main');
+    if (!main) return;
+
+    main.scrollIntoView({ behavior: 'smooth', block: 'center' });
+  };
+
+  // FUNCTION intersection observer 부착
+  useEffect(() => {
+    if (!sectionRef.current) return;
+    mainObserver.observe(sectionRef.current);
+  }, []);
+
   return (
-    <section className='Introduce'>
+    <section className='Introduce' ref={sectionRef}>
       <div className='Introduce__inner'>
         <Swiper className='Introduce__slider' {...slideOption} onSlideChange={(swiper) => setActiveIdx(swiper.activeIndex)}>
           <SwiperSlide className='Introduce__slide'>

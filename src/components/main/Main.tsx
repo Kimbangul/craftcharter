@@ -7,12 +7,14 @@ import { ReactComponent as ARROW_DOWN } from 'assets/image/main/arrow-down.svg';
 const Main = () => {
   const mainRef = useRef<null | HTMLDivElement>(null);
 
+  // FUNCTION 스크롤 감지 시 실행
   const onScrollMain = (e: Event | WheelEvent) => {
     if (e instanceof WheelEvent && e.deltaY > 0) {
       scrollToNext();
     }
   };
 
+  // FUNCTION intersection Observer 콜백 함수
   const onObserveMain = (entry: IntersectionObserverEntry[]) => {
     // console.log(entry[0].intersectionRatio);
     if (entry[0].intersectionRatio <= 0) {
@@ -37,11 +39,13 @@ const Main = () => {
     }
   );
 
+  // FUNCTION intersection observer 부착
   useEffect(() => {
     if (!mainRef.current) return;
     mainObserver.observe(mainRef.current);
   }, []);
 
+  // FUNCTION 다음 section으로 scroll
   const scrollToNext = () => {
     const introduce = document.querySelector('.Introduce');
     if (!introduce) return;

@@ -31,7 +31,7 @@ const Nav: React.FC<NavPropsType> = ({ open, setOpen }) => {
           <ul className='Nav__menu-list'>
             {menu.map((el, idx) => {
               return (
-                <li className='Nav__menu-item' onMouseEnter={() => setActiveMenu(idx + 1)} onMouseLeave={() => setActiveMenu(0)}>
+                <li key={`menu${idx}`} className='Nav__menu-item' onMouseEnter={() => setActiveMenu(idx + 1)} onMouseLeave={() => setActiveMenu(0)}>
                   <a href={el.link}>{el.title}</a>
                 </li>
               );
@@ -44,9 +44,9 @@ const Nav: React.FC<NavPropsType> = ({ open, setOpen }) => {
             <Credit />
           </div>
           <ul className='Nav__footer-info'>
-            {info.map((el) => {
+            {info.map((el, idx) => {
               return (
-                <li className='Nav__footer-info-item'>
+                <li key={`ftmenu${idx}`} className='Nav__footer-info-item'>
                   <a href={el.link}>{el.title}</a>
                 </li>
               );

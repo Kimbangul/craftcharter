@@ -9,9 +9,9 @@ const Footer = () => {
         <Logo fill='#000' />
         <nav className='Footer__nav'>
           <ul>
-            {footerMenu.map((el) => {
+            {footerMenu.map((el, idx) => {
               return (
-                <li className='Footer__nav-item'>
+                <li className='Footer__nav-item' key={`ftmenu${idx}`}>
                   <a href={el.link}>{el.title}</a>
                 </li>
               );
@@ -29,9 +29,9 @@ const Footer = () => {
           <Credit />
         </div>
         <ul className='Footer__info'>
-          {infoMenu.map((el) => {
+          {infoMenu.map((el, idx) => {
             return (
-              <li className='Footer__info-item'>
+              <li className='Footer__info-item' key={`ftinfo${idx}`}>
                 <a href={el.link}>{el.title}</a>
               </li>
             );
