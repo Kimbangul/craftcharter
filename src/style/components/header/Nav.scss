@@ -98,9 +98,6 @@
         text-transform: uppercase;
         transition: color 0.3s;
         &::after {
-          // display: inline-flex;
-          // justify-content: center;
-          // align-items: end;
           content: url('../../../assets/image/header/menu_arrow.svg');
           width: 3.2rem;
           height: 1.2rem;
