@@ -7,6 +7,10 @@ import CARD02 from 'assets/image/introduce/card02.jpeg';
 import CARD03 from 'assets/image/introduce/card03.jpeg';
 
 const Introduce = () => {
+  const [scroll, setScroll] = useState(0);
+  const [prevScroll, setPrevScroll] = useState<number>(0);
+  const [scrollDir, setScrollDir] = useState<'up' | 'down' | 'top'>('top');
+
   const [activeIdx, setActiveIdx] = useState<number>(0);
   const imgRef = useRef<null | SwiperRef>(null);
   const sectionRef = useRef<null | HTMLDivElement>(null);
@@ -19,6 +23,10 @@ const Introduce = () => {
 
   // FUNCTION 스크롤 감지 시 실행
   const onScrollMain = (e: Event | WheelEvent) => {
+    e.preventDefault();
+    e.stopPropagation();
+    e.stopImmediatePropagation();
+    console.log(e instanceof WheelEvent && e.deltaY < 0);
     if (e instanceof WheelEvent && e.deltaY < 0) {
       scrollToPrev();
     }
@@ -26,11 +34,11 @@ const Introduce = () => {
 
   // FUNCTION intersection Observer 콜백 함수
   const onObserveMain = (entry: IntersectionObserverEntry[]) => {
-    // console.log(entry[0].intersectionRatio);
-    if (entry[0].intersectionRatio <= 0) {
+    console.log(entry[0].intersectionRatio);
+    if (entry[0].intersectionRatio < 0.8) {
       document.removeEventListener('wheel', onScrollMain);
     } else if (entry[0].intersectionRatio >= 0.8) {
-      document.addEventListener('wheel', onScrollMain);
+      // document.addEventListener('wheel', onScrollMain);
     }
   };
 
@@ -41,7 +49,7 @@ const Introduce = () => {
     {
       root: null,
       rootMargin: '0px',
-      threshold: [1.0, 0.8, 0.6, 0.4, 0.2, 0],
+      threshold: [1.0, 0.7, 0.2, 0],
     }
   );
 
@@ -49,8 +57,10 @@ const Introduce = () => {
   const scrollToPrev = () => {
     const main = document.querySelector('.Main');
     if (!main) return;
-
-    main.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    document.body.style.height = '100vh';
+    document.body.style.overflowY = 'hidden';
+    console.log('dd');
+    main.scrollIntoView({ behavior: 'smooth', block: 'start' });
   };
 
   // FUNCTION intersection observer 부착
