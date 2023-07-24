@@ -1,4 +1,5 @@
 .Header {
+  $Header: &;
   position: fixed;
   top: -2.2rem;
   left: 0;
@@ -6,13 +7,35 @@
   width: 100%;
   transition: top 0.3s;
 
+  &::before {
+    content: '';
+    display: block;
+    position: absolute;
+    z-index: -1;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: $white;
+    transition: top 0.3s;
+  }
+
   &.top {
     top: 0;
+
+    &::before {
+      top: -9rem;
+    }
   }
 
   &.up {
+    #{$Header}__btn--contact {
+      @include btn-rounded($black, $white);
+    }
   }
+
   &.down {
+    top: -9rem;
   }
 
   &__inner {
@@ -35,6 +58,12 @@
     &--contact {
       @include btn-rounded($white, $black);
       text-transform: uppercase;
+    }
+  }
+
+  .Logo {
+    svg {
+      transition: fill 0.3s;
     }
   }
 }
