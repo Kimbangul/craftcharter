@@ -1,4 +1,6 @@
-import { useEffect, useRef } from 'react';
+import { useCallback, useEffect, useRef, useMemo, useState } from 'react';
+import useScroll from 'hooks/useScroll';
+import useObserver from 'hooks/useObserver';
 import MAIN_BG01 from '../../assets/video/main-bg.mp4';
 import MAIN_BG02 from '../../assets/video/main-bg02.mp4';
 import { ReactComponent as MainIcon } from 'assets/image/common/logo-icon.svg';
@@ -7,69 +9,67 @@ import { ReactComponent as ARROW_DOWN } from 'assets/image/main/arrow-down.svg';
 const Main = () => {
   const mainRef = useRef<null | HTMLDivElement>(null);
 
-  // FUNCTION 스크롤 감지 시 실행
-  const onScrollMain = (e: Event | WheelEvent) => {
-    if (e instanceof WheelEvent && e.deltaY > 0) {
-      scrollToNext();
-    }
-  };
+  const scroll = useScroll();
+  const scrollDir = useMemo(() => {
+    return scroll.scrollDir;
+  }, [scroll.scrollDir]);
 
-  // FUNCTION intersection Observer 콜백 함수
-  const onObserveMain = (entry: IntersectionObserverEntry[]) => {
-    // console.log(entry[0].intersectionRatio);
-    if (entry[0].intersectionRatio <= 0) {
-      document.body.style.height = 'auto';
-      document.body.style.overflowY = 'auto';
-      document.removeEventListener('wheel', onScrollMain);
-    } else if (entry[0].intersectionRatio >= 0.8) {
-      document.body.style.height = '100vh';
-      document.body.style.overflowY = 'hidden';
-      document.addEventListener('wheel', onScrollMain);
-    }
-  };
-
-  const mainObserver = new IntersectionObserver(
-    (entry) => {
-      onObserveMain(entry);
+  const observer = useObserver(
+    (entry: IntersectionObserverEntry[]) => {
+      if (entry[0].isIntersecting) {
+        // document.addEventListener('scroll', onMoveSection);
+      } else {
+        // document.removeEventListener('scroll', onMoveSection);
+      }
+      // console.log(entry[0].isIntersecting);
     },
-    {
-      root: null,
-      rootMargin: '0px',
-      threshold: [1.0, 0.8, 0],
-    }
+    { threshold: 0.5 }
   );
 
-  // FUNCTION intersection observer 부착
-  useEffect(() => {
-    if (!mainRef.current) return;
-    mainObserver.observe(mainRef.current);
-  }, []);
+  const onMoveSection = useCallback(() => {
+    console.log(scrollDir);
+    if (scrollDir === 'up') {
+      window.scrollTo({ top: 0 });
+    }
 
-  // FUNCTION 다음 section으로 scroll
-  const scrollToNext = () => {
-    const introduce = document.querySelector('.Introduce');
-    if (!introduce) return;
+    if (scrollDir === 'down') {
+      console.log(window.innerHeight);
+      window.scrollTo({ top: window.innerHeight });
+    }
+  }, [scrollDir]);
 
-    introduce.scrollIntoView({ behavior: 'smooth', block: 'center' });
-  };
+  // useEffect(() => {
+  //   console.log(scroll.scrollDir);
+
+  //   if (scroll.scrollDir === 'up') {
+  //     window.scrollTo({ top: 0 });
+  //   }
+
+  //   if (scroll.scrollDir === 'down') {
+  //     console.log(window.innerHeight);
+  //     window.scrollTo({ top: window.innerHeight });
+  //   }
+  // }, [scroll.scroll, scroll.scrollDir]);
 
   return (
-    <section className='Main' ref={mainRef}>
-      <div className='Main__logo'>
-        <MainIcon />
-      </div>
-      <div className='Main__btn--next' onClick={scrollToNext}>
-        <p className='Main__text'>
-          <span className='Main__text-line'>fly your way</span>
-          <span className='Main__text-line'>Craft the perfect journey</span>
-        </p>
-        <ARROW_DOWN />
-      </div>
+    <section className='Main' ref={observer.target}>
+      <div className='Main__inner'>
+        <div className='Main__logo'>
+          <MainIcon />
+        </div>
+        <div className='Main__btn--next'>
+          <p className='Main__text'>
+            <span className='Main__text-line'>fly your way</span>
+            <span className='Main__text-line'>Craft the perfect journey</span>
+          </p>
+          <ARROW_DOWN />
+        </div>
 
-      <video className='Main__video' autoPlay={true} muted loop playsInline>
-        <source src={MAIN_BG01} />
-        <source src={MAIN_BG02} />
-      </video>
+        <video className='Main__video' autoPlay={true} muted loop playsInline>
+          <source src={MAIN_BG01} />
+          <source src={MAIN_BG02} />
+        </video>
+      </div>
     </section>
   );
 };

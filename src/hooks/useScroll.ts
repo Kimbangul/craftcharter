@@ -30,7 +30,7 @@ const useScroll = () => {
       setScrollDir('up');
     }
     setPrevScroll(scroll);
-  }, [scroll]);
+  }, [scroll, prevScroll]);
 
   return { scroll, setScroll, prevScroll, setPrevScroll, scrollDir, setScrollDir };
 };

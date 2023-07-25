@@ -1,4 +1,4 @@
-import { useState, useEffect, useCallback } from 'react';
+import { useState } from 'react';
 import Logo from 'components/common/logo/Logo';
 import Nav from 'components/header/Nav';
 import useScroll from 'hooks/useScroll';
