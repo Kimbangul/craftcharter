@@ -66,4 +66,12 @@
       transition: fill 0.3s;
     }
   }
+
+  @media (max-width: $pc-width) {
+    &__btn {
+      &--contact {
+        display: none;
+      }
+    }
+  }
 }

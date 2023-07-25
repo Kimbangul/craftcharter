@@ -47,4 +47,8 @@
       transform: translateY(-5rem);
     }
   }
+
+  @media (max-width: $pc-width) {
+    display: none;
+  }
 }

@@ -21,6 +21,8 @@
   transition:
     visibility 0.3s 0.3s,
     top 0.3s;
+  min-height: 100vh;
+  overflow-y: auto;
   &.open {
     top: 0;
     visibility: visible;
@@ -153,5 +155,60 @@
 
   &__link-container {
     @extend .Footer__link-container;
+  }
+
+  @media (max-width: $pc-width) {
+    & {
+      top: 0;
+      left: 100%;
+      transition:
+        visibility 0.3s 0.3s,
+        left 0.3s;
+
+      &.open {
+        top: 0;
+        left: 0;
+        transition:
+          visibility 0.3s,
+          left 0.3s;
+      }
+    }
+
+    &__btn {
+      &--contact {
+        display: none;
+      }
+    }
+
+    &__inner {
+      grid-template:
+        'a a' auto
+        'c c' 1fr
+        'd d' auto;
+    }
+
+    &__img-container {
+      display: none;
+    }
+
+    &__menu {
+      &-item {
+        a {
+          font-size: 2.4rem;
+        }
+        a::after {
+          display: none;
+        }
+      }
+    }
+
+    &__footer {
+      flex-direction: column;
+      align-items: stretch;
+
+      &-info {
+        margin-top: 4rem;
+      }
+    }
   }
 }
