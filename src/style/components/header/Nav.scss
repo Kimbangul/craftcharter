@@ -172,6 +172,17 @@
           visibility 0.3s,
           left 0.3s;
       }
+
+      & .SideCta {
+        display: block;
+        position: static;
+        transform: none;
+        width: 100%;
+        grid-area: e;
+        &:hover .SideCta__text {
+          transform: none;
+        }
+      }
     }
 
     &__btn {
@@ -184,7 +195,8 @@
       grid-template:
         'a a' auto
         'c c' 1fr
-        'd d' auto;
+        'd d' auto
+        'e e' auto;
     }
 
     &__img-container {
@@ -205,9 +217,12 @@
     &__footer {
       flex-direction: column;
       align-items: stretch;
+      padding: 0 4rem 4rem 4rem;
 
       &-info {
         margin-top: 4rem;
+        gap: 1rem 2rem !important;
+        flex-wrap: wrap;
       }
     }
   }

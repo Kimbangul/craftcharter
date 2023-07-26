@@ -8,6 +8,7 @@ import { ReactComponent as ARROW_DOWN } from 'assets/image/main/arrow-down.svg';
 
 const Main = () => {
   const mainRef = useRef<null | HTMLDivElement>(null);
+  const [isVisible, setIsVisible] = useState(false);
 
   const scroll = useScroll();
 
@@ -18,6 +19,7 @@ const Main = () => {
 
   const onMoveSection = useCallback(() => {
     console.log(scrollDir);
+    if (!isVisible) return;
     if (scrollDir === 'up') {
       window.scrollTo({ top: 0 });
     }
@@ -26,20 +28,19 @@ const Main = () => {
       console.log(window.innerHeight);
       window.scrollTo({ top: window.innerHeight });
     }
-  }, [scrollDir]);
+  }, [scrollDir, isVisible]);
 
-  useEffect(() => {
-    onMoveSection();
-  }, [onMoveSection]);
+  // useEffect(() => {
+  //   onMoveSection();
+  // }, [onMoveSection]);
 
   const observer = useObserver(
     (entry: IntersectionObserverEntry[]) => {
       if (entry[0].isIntersecting) {
-        // document.addEventListener('scroll', onMoveSection);
+        setIsVisible(false);
       } else {
-        // document.removeEventListener('scroll', onMoveSection);
+        setIsVisible(true);
       }
-      // console.log(entry[0].isIntersecting);
     },
     { threshold: 0.5 }
   );

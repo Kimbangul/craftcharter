@@ -3,6 +3,7 @@ import Logo from 'components/common/logo/Logo';
 import { menu, info } from 'components/header/menu';
 import { Social, Credit } from 'components/common/social/Social';
 import NavBgImg from 'components/header/NavBgImg';
+import SideCta from 'components/side/SideCta';
 
 import { NavPropsType } from 'components/header/type';
 import { ReactComponent as CLOSE } from 'assets/image/common/close.svg';
@@ -54,6 +55,7 @@ const Nav: React.FC<NavPropsType> = ({ open, setOpen }) => {
             <li className='Nav__footer-info-copy'>© 2023 Craft</li>
           </ul>
         </div>
+        <SideCta />
       </nav>
     </div>
   );

@@ -68,9 +68,12 @@
   }
 
   @media (max-width: $pc-width) {
+    &.up {
+      top: -9rem;
+    }
     &__btn {
       &--contact {
-        display: none;
+        display: none !important;
       }
     }
   }

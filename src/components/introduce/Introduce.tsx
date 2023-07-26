@@ -25,7 +25,7 @@ const Introduce = () => {
             <div className='Introduce__text-container'>
               <h2 className='Introduce__title'>
                 Masters in the art of
-                <br /> moving you
+                <br className='pc-only' /> moving you
               </h2>
               <p className='Introduce__desc'>
                 There’s private aviation and then there’s Craft. We deliver an uncompromising journey experience that goes beyond luxury.
@@ -39,7 +39,7 @@ const Introduce = () => {
             <div className='Introduce__text-container'>
               <h2 className='Introduce__title'>
                 Obsessive attention
-                <br /> to detail
+                <br className='pc-only' /> to detail
               </h2>
               <p className='Introduce__desc'>
                 Every moment is crafted from the second you arrive – From our bespoke cabin interiors to our custom in-flight hospitality.
@@ -53,7 +53,7 @@ const Introduce = () => {
             <div className='Introduce__text-container'>
               <h2 className='Introduce__title'>
                 Feel completely at
-                <br /> home
+                <br className='pc-only' /> home
               </h2>
               <p className='Introduce__desc'>
                 Your comfort and safety are our top priorities. Our state-of-the-art systems and specialized operational procedures are engrained in our
