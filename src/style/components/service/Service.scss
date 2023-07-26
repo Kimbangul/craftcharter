@@ -87,4 +87,35 @@
       align-self: stretch;
     }
   }
+
+  @media (max-width: $pc-width) {
+    & {
+      padding: 0 6rem;
+    }
+    &__title {
+      font-size: 3.6rem;
+      font-weight: 400;
+    }
+    &__text {
+      &-container {
+        width: auto;
+      }
+    }
+    &__desti {
+      &-container {
+        gap: 2ch;
+        justify-content: center;
+      }
+
+      &-item {
+        font-size: 3.6rem;
+        font-weight: 400;
+      }
+
+      &-icon {
+        width: 1.9rem;
+        height: 1.9rem;
+      }
+    }
+  }
 }

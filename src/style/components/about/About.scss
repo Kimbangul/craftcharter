@@ -79,4 +79,33 @@
       text-transform: uppercase;
     }
   }
+
+  @media (max-width: $pc-width) {
+    & {
+      padding: 12rem 0;
+      grid-template:
+        'a a'
+        'b c'
+        'b d';
+    }
+    &__img {
+      &-container:first-child {
+        grid-area: a;
+      }
+      &-container:last-child {
+        grid-area: d;
+      }
+    }
+    &__text {
+      &-container {
+        grid-area: b;
+      }
+    }
+    &__svg {
+      &-container {
+        position: static;
+        grid-area: c;
+      }
+    }
+  }
 }
