@@ -134,6 +134,7 @@
     }
     &__img {
       &-container:first-child {
+        width: 100%;
         height: 50rem;
         margin-bottom: 6rem;
         img {
@@ -142,18 +143,76 @@
       }
       &-container:last-child {
         grid-area: d;
+        width: calc(100% - 6rem);
+        margin-top: 4rem;
       }
     }
     &__text {
       &-container {
         grid-area: b;
+        padding: 0 6rem;
       }
     }
     &__svg {
       &-container {
         position: static;
         grid-area: c;
+        justify-content: flex-end;
+        margin-right: -6rem;
+
+        svg {
+          width: 19.7rem !important;
+        }
       }
+    }
+
+    &__title {
+      font-size: 3.6rem;
+      font-weight: 400;
+    }
+  }
+
+  @media (max-width: $tb-width) {
+    & {
+      grid-template:
+        'a a'
+        'b b'
+        'c d';
+      padding-bottom: 0;
+    }
+    &__title {
+      font-size: 2.8rem;
+    }
+    &__text {
+      &-container {
+        padding: 0 4rem;
+      }
+    }
+
+    &__img-container {
+      &:last-child {
+        width: 100%;
+        margin-right: -2rem;
+        min-height: 26rem;
+      }
+    }
+
+    &__svg-container {
+      justify-content: flex-start;
+      margin-right: 0;
+      margin-left: -6rem;
+    }
+
+    &__btn {
+      margin-top: 4rem;
+    }
+  }
+
+  @media (max-width: 500px) {
+    &__img-container {
+      aspect-ratio: 1 / 1;
+      height: auto;
+      overflow: hidden;
     }
   }
 }
