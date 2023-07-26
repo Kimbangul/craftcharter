@@ -7,6 +7,16 @@
     padding: 0 2.4rem;
     margin: 0 auto;
   }
+  @mixin item-style {
+    font-weight: 600;
+    font-size: 1.5rem;
+    transition: opacity 0.3s;
+    text-transform: uppercase;
+
+    &:hover {
+      opacity: 0.7;
+    }
+  }
 
   &__header {
     @include inner_item();
@@ -19,14 +29,7 @@
       @include flex(flex-start, center, 4rem);
     }
     &-item {
-      font-weight: 600;
-      font-size: 1.5rem;
-      transition: opacity 0.3s;
-      text-transform: uppercase;
-
-      &:hover {
-        opacity: 0.7;
-      }
+      @include item-style();
     }
   }
 
@@ -105,4 +108,67 @@
   // &__social {
   //   @include flex(flex-start, center, 2.4rem);
   // }
+
+  @media (max-width: $pc-width) {
+    & {
+      padding: 7.8rem 6rem 2.5rem 6rem;
+    }
+    &__header {
+      flex-direction: column;
+      align-items: stretch;
+      padding: 0;
+    }
+    &__bottom {
+      flex-direction: column;
+      align-items: stretch;
+      padding: 0;
+    }
+    &__nav {
+      display: block;
+      margin-top: 8.5rem;
+
+      ul {
+        display: block;
+      }
+      &-item {
+        margin-top: 3rem;
+        &:first-child {
+          margin-top: 0;
+        }
+      }
+    }
+
+    &__btn--round {
+      @include item-style();
+      display: block;
+      font-weight: 600;
+      font-size: 1.5rem;
+      transition: opacity 0.3s;
+      text-transform: uppercase;
+      padding: 0;
+      border: none;
+      height: auto;
+      margin-top: 3rem;
+      &:hover {
+        background: inherit;
+        border: none;
+        color: inherit;
+      }
+    }
+    &__link-container {
+      margin-bottom: 4rem;
+    }
+    & hr {
+      margin-top: 6rem;
+    }
+    &__info {
+      flex-wrap: wrap;
+    }
+  }
+
+  @media (max-width: $tb-width) {
+    & {
+      padding: 7.8rem 4rem 2.5rem 4rem;
+    }
+  }
 }

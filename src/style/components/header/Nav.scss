@@ -225,5 +225,9 @@
         flex-wrap: wrap;
       }
     }
+
+    &__link-container {
+      margin-bottom: 0 !important;
+    }
   }
 }
