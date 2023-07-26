@@ -37,6 +37,9 @@ const Nav: React.FC<NavPropsType> = ({ open, setOpen }) => {
                 </li>
               );
             })}
+            <li className='Nav__menu-item tb-only' onMouseEnter={() => setActiveMenu(6)} onMouseLeave={() => setActiveMenu(0)}>
+              <a href='#'>contact</a>
+            </li>
           </ul>
         </div>
         <div className='Nav__footer'>

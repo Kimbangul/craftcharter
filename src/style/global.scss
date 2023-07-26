@@ -1,18 +1,5 @@
 html {
   font-size: 62.5%;
-  // transition: font-size 0.3s;
-
-  // @media(max-width: 768px){
-  //   font-size: 58%;
-  // }
-
-  // @media(max-width: 500px){
-  //   font-size: 50%;
-  // }
-
-  // @media(max-width: 375px){
-  //   font-size: 45%;
-  // }
 }
 * {
   margin: 0;
@@ -39,16 +26,6 @@ body {
   font-size: 1.4rem;
   font-family: 'Open Sans', sans-serif;
 }
-// body{
-//   font-family: 'Montserrat', 'Noto Sans KR', sans-serif;
-//   font-size: 1.4rem;
-// }
-// h1, h2, h3, h4, h5, h6 {
-//   font-family: 'Montserrat', 'Noto Sans KR', sans-serif;
-// }
-// button, input {
-//   font-family: 'Montserrat', 'Noto Sans KR', sans-serif;
-// }
 .Wrapper {
   position: relative;
 }
@@ -66,5 +43,11 @@ body {
   display: inherit;
   @media (max-width: $pc-width) {
     display: none;
+  }
+}
+.tb-only {
+  display: none;
+  @media (max-width: $pc-width) {
+    display: inherit;
   }
 }

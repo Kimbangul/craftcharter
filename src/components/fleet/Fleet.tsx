@@ -1,5 +1,5 @@
 import { Swiper, SwiperSlide } from 'swiper/react';
-import { Navigation } from 'swiper/modules';
+import { slideOption } from 'components/fleet/slideOption';
 
 import CARD_01 from 'assets/image/fleet/card_01.png';
 import CARD_02 from 'assets/image/fleet/card_02.png';
@@ -9,12 +9,6 @@ import 'swiper/css';
 import 'swiper/css/navigation';
 
 const Fleet = () => {
-  const slideOption = {
-    modules: [Navigation],
-    navigation: true,
-    speed: 1200,
-  };
-
   return (
     <section className='Fleet'>
       <h2 className='Fleet__title'>Hand-picked and leading edge</h2>

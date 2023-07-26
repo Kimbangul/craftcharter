@@ -32,7 +32,7 @@
 
     #{$Nav}__menu-item {
       opacity: 1;
-      @for $i from 1 to 6 {
+      @for $i from 1 through 6 {
         &:nth-child(#{$i}) {
           animation: nav-item-ani 0.2s ease-out #{0.15 * $i}s both;
         }

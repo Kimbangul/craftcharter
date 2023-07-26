@@ -98,4 +98,35 @@
       }
     }
   }
+
+  @media (max-width: $pc-width) {
+    &__title {
+      font-size: 3.2rem;
+      font-weight: 400;
+    }
+    &__item {
+      &-text-container {
+        position: static;
+        transform: none;
+        text-align: center;
+        margin-top: 2.4rem;
+      }
+      &-title {
+        transform: none;
+        opacity: 1;
+        font-size: 2.4rem;
+        line-height: 0.8;
+      }
+    }
+
+    .swiper-slide-active a:hover .Fleet__item-title {
+      transform: none;
+    }
+  }
+
+  @media (max-width: $tb-width) {
+    &__title {
+      font-size: 2.4rem;
+    }
+  }
 }
