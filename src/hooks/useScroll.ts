@@ -1,3 +1,4 @@
+import { debounce } from 'lodash';
 import { useState, useEffect } from 'react';
 
 const useScroll = () => {
@@ -20,16 +21,18 @@ const useScroll = () => {
 
   // FUNCTION 스크롤 방향 설정
   useEffect(() => {
-    if (scroll === 0) {
-      setScrollDir('top');
-      return;
-    }
-    if (prevScroll < scroll) {
-      setScrollDir('down');
-    } else if (prevScroll > scroll) {
-      setScrollDir('up');
-    }
-    setPrevScroll(scroll);
+    debounce((e) => {
+      if (scroll === 0) {
+        setScrollDir('top');
+        return;
+      }
+      if (prevScroll < scroll) {
+        setScrollDir('down');
+      } else if (prevScroll > scroll) {
+        setScrollDir('up');
+      }
+      setPrevScroll(scroll);
+    }, 300);
   }, [scroll, prevScroll]);
 
   return { scroll, setScroll, prevScroll, setPrevScroll, scrollDir, setScrollDir };
