@@ -127,6 +127,7 @@
   }
 
   &__img {
+    transition: transform 0.7s !important;
     &-container {
       position: relative;
       width: 48rem;
@@ -187,14 +188,29 @@
     &__slider {
       width: 100%;
       margin-left: 0;
-      padding: 2rem 4rem 0 4rem !important;
+      padding: 8rem 4rem 0 4rem !important;
       display: flex;
       flex-wrap: wrap;
+
+      & .swiper-button {
+        @mixin btn-style {
+          position: absolute;
+          top: 2rem;
+          left: 0;
+        }
+        &-prev {
+          @include btn-style();
+          left: calc(4rem - 1rem);
+        }
+        &-next {
+          @include btn-style();
+          left: calc(4rem + 6rem - 1rem);
+        }
+      }
     }
 
     &__title {
       font-size: 3rem;
-      margin-top: 0.4rem;
     }
 
     &__desc {

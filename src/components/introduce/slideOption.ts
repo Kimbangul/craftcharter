@@ -21,12 +21,28 @@ export const cardOption: SlideOptionType = {
     limitProgress: 4,
     prev: {
       shadow: true,
-      translate: ['50%', 0, 300],
+      translate: ['-50%', 0, 300],
       opacity: 0,
     },
     next: {
-      translate: ['-40%', 0, -300],
+      translate: ['40%', 0, -300],
       opacity: 0.6,
+    },
+  },
+  breakpoints: {
+    768: {
+      creativeEffect: {
+        limitProgress: 4,
+        prev: {
+          shadow: true,
+          translate: ['50%', 0, 300],
+          opacity: 0,
+        },
+        next: {
+          translate: ['-40%', 0, -300],
+          opacity: 0.6,
+        },
+      },
     },
   },
 };

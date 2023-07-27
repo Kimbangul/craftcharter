@@ -26,7 +26,7 @@
 
   &__btn {
     &--next {
-      @include flex(center, center, 1rem, column);
+      @include flex(center, center, 2rem, column);
       cursor: pointer;
       position: absolute;
       z-index: 2;
@@ -46,18 +46,36 @@
     text-transform: uppercase;
     color: $white;
     text-align: center;
-    // perspective: 0;
 
     span {
       display: block;
       transform: rotate3d(0, 0, 0, 0deg);
+      transition:
+        transform 0.3s,
+        opacity 0.3s;
+      transform-origin: center top;
+      position: relative;
       &:nth-child(2) {
         // transform: translate3d(0, 0, 100%);
-        transform: rotate3d(1, 0, 0, 90deg);
+        position: absolute;
+        white-space: nowrap;
+        opacity: 0;
+        left: 50%;
+        top: 0;
+        transform-origin: center bottom;
+        transform: rotate3d(1, 0, 0, -90deg) translateX(-50%) translateY(2rem);
       }
     }
 
     &:hover {
+      span {
+        transform: rotate3d(1, 0, 0, -90deg);
+        &:nth-child(2) {
+          opacity: 1;
+
+          transform: rotate3d(0, 0, 0, 0deg) translateX(-50%);
+        }
+      }
     }
   }
 
@@ -78,30 +96,21 @@
     &__logo {
       transform: none;
       position: static;
-      margin-top: 10rem;
     }
 
     &__btn {
       &--next {
-        transform: none;
-        position: static;
+        // transform: none;
+        // position: static;
+        bottom: 13rem;
       }
     }
-
-    // &__btn {
-    //   &--next {
-    //     top: calc(50% + 20rem);
-    //     bottom: unset;
-    //     transform: translateX(-50%) translateY(-50%);
-    //   }
-    // }
   }
 
   @media (max-width: $tb-width) {
     &__logo {
       width: 16rem;
       height: 16rem;
-      margin-top: 8rem;
     }
   }
 }
