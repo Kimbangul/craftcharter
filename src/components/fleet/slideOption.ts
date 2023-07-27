@@ -5,7 +5,9 @@ export const slideOption = {
   navigation: {
     enabled: false,
   },
-  pagination: true,
+  pagination: {
+    clickable: true,
+  },
   speed: 1200,
   breakpoints: {
     0: {
