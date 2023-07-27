@@ -7,6 +7,7 @@ import CARD_03 from 'assets/image/fleet/card_03.png';
 
 import 'swiper/css';
 import 'swiper/css/navigation';
+import 'swiper/css/pagination';
 
 const Fleet = () => {
   return (
