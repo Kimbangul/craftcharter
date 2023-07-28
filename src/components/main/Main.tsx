@@ -26,24 +26,19 @@ const Main = () => {
     { threshold: 0.5 }
   );
 
-  const dir = useMemo(() => {
-    console.log(scroll.scrollDir);
-    return scroll.scrollDir;
-  }, [scroll.scrollDir]);
+  // const onChange = useCallback(() => console.log(dir), [dir]);
 
-  const onChange = useCallback(
-    debounce((e) => {
-      console.log(dir);
-    }, 300),
-    [dir]
-  );
+  // useEffect(() => {
+  //   document.addEventListener('scroll', debounce(onChange, 300));
+
+  //   return () => document.removeEventListener('scroll', debounce(onChange, 300));
+  // }, [onChange]);
 
   useEffect(() => {
-    document.removeEventListener('scroll', onChange);
-    if (isVisible) {
-      document.addEventListener('scroll', onChange);
+    if (scroll.scrollDir === 'down' && isVisible) {
+      console.log('실행');
     }
-  }, [isVisible, onChange]);
+  }, [scroll.scrollDir, isVisible]);
 
   return (
     <section className='Main' ref={observer.target}>

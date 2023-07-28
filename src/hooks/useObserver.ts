@@ -25,11 +25,6 @@ function useObserver(callback: (param?: any) => any, option?: IntersectionObserv
     }
   }, []);
 
-  useEffect(() => {
-    if (!observerRef.current) return;
-    console.log(observerRef.current);
-  }, [observerRef.current]);
-
   return {
     target: targetRef,
   };

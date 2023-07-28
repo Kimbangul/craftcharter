@@ -14,25 +14,21 @@ const useScroll = () => {
   //  FUNCTION 스크롤 감지
   useEffect(() => {
     if (!document) return;
-    document.addEventListener('scroll', onScrollDoc);
+    document.addEventListener('scroll', debounce(onScrollDoc, 300));
 
-    return () => document.removeEventListener('scroll', onScrollDoc);
+    return () => document.removeEventListener('scroll', debounce(onScrollDoc, 300));
   }, []);
 
   // FUNCTION 스크롤 방향 설정
   useEffect(() => {
-    debounce((e) => {
-      if (scroll === 0) {
-        setScrollDir('top');
-        return;
-      }
-      if (prevScroll < scroll) {
-        setScrollDir('down');
-      } else if (prevScroll > scroll) {
-        setScrollDir('up');
-      }
-      setPrevScroll(scroll);
-    }, 300);
+    if (scroll === 0) {
+      setScrollDir('top');
+    } else if (prevScroll < scroll) {
+      setScrollDir('down');
+    } else if (prevScroll > scroll) {
+      setScrollDir('up');
+    }
+    setPrevScroll(scroll);
   }, [scroll, prevScroll]);
 
   return { scroll, setScroll, prevScroll, setPrevScroll, scrollDir, setScrollDir };
