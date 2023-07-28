@@ -5,16 +5,25 @@ const useScroll = () => {
   const [scroll, setScroll] = useState<number>(0);
   const [prevScroll, setPrevScroll] = useState<number>(0);
   const [scrollDir, setScrollDir] = useState<'up' | 'down' | 'top'>('top');
+  const [isScroll, setIsScroll] = useState(false);
 
   // FUNCTION 현재 스크롤 저장
   const onScrollDoc = () => {
     setScroll(document.scrollingElement?.scrollTop || 0);
   };
 
+  const getIsScroll = () => {
+    // setIsScroll(true);
+
+    console.log('scroll');
+    return console.log('end');
+  };
+
   //  FUNCTION 스크롤 감지
   useEffect(() => {
     if (!document) return;
     document.addEventListener('scroll', debounce(onScrollDoc, 300));
+    document.addEventListener('scroll', debounce(getIsScroll, 300));
 
     return () => document.removeEventListener('scroll', debounce(onScrollDoc, 300));
   }, []);

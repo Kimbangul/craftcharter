@@ -11,9 +11,16 @@ import { ReactComponent as ARROW_DOWN } from 'assets/image/main/arrow-down.svg';
 const Main = () => {
   const mainRef = useRef<null | HTMLDivElement>(null);
   const [isVisible, setIsVisible] = useState(false);
-  const [timer, setTimer] = useState<null | NodeJS.Timeout>(null);
+  const [scrollDir, setScrollDir] = useState<null | 'up' | 'down' | 'top'>(null);
 
   const scroll = useScroll();
+
+  useEffect(() => {
+    if (scrollDir !== null) {
+      setScrollDir(null);
+      return;
+    }
+  }, [scrollDir]);
 
   const observer = useObserver(
     (entry: IntersectionObserverEntry[]) => {
@@ -26,19 +33,26 @@ const Main = () => {
     { threshold: 0.5 }
   );
 
-  // const onChange = useCallback(() => console.log(dir), [dir]);
+  const setNextSection = () => {
+    const sec = document.querySelector('.Introduce');
+    console.log(sec);
+    if (!sec) return;
+
+    document.body.style.height = '100vh';
+    document.body.style.overflow = 'hidden';
+    setTimeout(() => {
+      sec.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      document.body.style.height = 'auto';
+      document.body.style.overflow = 'auto';
+    }, 1000);
+  };
 
   // useEffect(() => {
-  //   document.addEventListener('scroll', debounce(onChange, 300));
-
-  //   return () => document.removeEventListener('scroll', debounce(onChange, 300));
-  // }, [onChange]);
-
-  useEffect(() => {
-    if (scroll.scrollDir === 'down' && isVisible) {
-      console.log('실행');
-    }
-  }, [scroll.scrollDir, isVisible]);
+  //   if (scroll.scrollDir === 'down') {
+  //     // setNextSection();
+  //     console.log('실행')
+  //   }
+  // }, [scroll.scrollDir, scroll, prevScroll]);
 
   return (
     <section className='Main' ref={observer.target}>
