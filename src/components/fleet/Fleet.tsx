@@ -1,9 +1,9 @@
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { slideOption } from 'components/fleet/slideOption';
 
-import CARD_01 from 'assets/image/fleet/card_01.png';
-import CARD_02 from 'assets/image/fleet/card_02.png';
-import CARD_03 from 'assets/image/fleet/card_03.png';
+import CARD_01 from '../../assets/image/fleet/card_01.png';
+import CARD_02 from '../../assets/image/fleet/card_02.png';
+import CARD_03 from '../../assets/image/fleet/card_03.png';
 
 import 'swiper/css';
 import 'swiper/css/navigation';
