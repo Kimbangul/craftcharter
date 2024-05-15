@@ -13,10 +13,9 @@ const useScroll = () => {
   };
 
   const getIsScroll = () => {
-    // setIsScroll(true);
-
-    console.log('scroll');
-    return console.log('end');
+    // // setIsScroll(true);
+    // console.log('scroll');
+    // return console.log('end');
   };
 
   //  FUNCTION 스크롤 감지

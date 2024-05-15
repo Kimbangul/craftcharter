@@ -22,6 +22,10 @@ const Fleet = () => {
           if (typeof swiper.params.navigation !== 'object') return;
           swiper.params.navigation.prevEl = navRef[0].current;
           swiper.params.navigation.nextEl = navRef[1].current;
+
+          swiper.navigation.destroy();
+          swiper.navigation.init();
+          swiper.navigation.update();
         }}
       >
         <SwiperSlide>
