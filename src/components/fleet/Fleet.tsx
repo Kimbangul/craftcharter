@@ -1,3 +1,4 @@
+import { useRef } from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { slideOption } from 'components/fleet/slideOption';
 
@@ -10,10 +11,19 @@ import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 
 const Fleet = () => {
+  const navRef = [useRef(), useRef()];
   return (
     <section className='Fleet'>
       <h2 className='Fleet__title'>Hand-picked and leading edge</h2>
-      <Swiper {...slideOption}>
+      <Swiper
+        {...slideOption}
+        onInit={(swiper) => {
+          console.log('oninit');
+          if (typeof swiper.params.navigation !== 'object') return;
+          swiper.params.navigation.prevEl = navRef[0].current;
+          swiper.params.navigation.nextEl = navRef[1].current;
+        }}
+      >
         <SwiperSlide>
           <a href='#'>
             <div className='Fleet__img-container'>
@@ -55,8 +65,8 @@ const Fleet = () => {
         </SwiperSlide>
       </Swiper>
       <div>
-        <button className='Fleet__nav-btn'></button>
-        <button className='Fleet__nav-btn'></button>
+        <button className='Fleet__nav-btn--prev' ref={navRef[0]}></button>
+        <button className='Fleet__nav-btn--next' ref={navRef[1]}></button>
       </div>
       <div className='Fleet__btn'>
         <a href='#'>Explore our fleet</a>

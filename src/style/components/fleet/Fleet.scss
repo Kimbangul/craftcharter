@@ -60,6 +60,13 @@
     &-btn {
       width: 5rem;
       height: 5rem;
+
+      &--prev {
+        @extend .Fleet__nav-btn;
+      }
+      &--next {
+        @extend .Fleet__nav-btn;
+      }
     }
   }
 

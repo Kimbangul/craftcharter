@@ -1,4 +1,5 @@
 import { Navigation, Pagination } from 'swiper/modules';
+import { SwiperProps } from 'swiper/react';
 
 export const slideOption = {
   modules: [Navigation, Pagination],
@@ -7,8 +8,6 @@ export const slideOption = {
   },
   pagination: {
     clickable: true,
-    nextEl: '.Fleet__nav-btn--next',
-    prevEl: '.Fleet__nav-btn--prev',
   },
   speed: 1200,
   breakpoints: {
