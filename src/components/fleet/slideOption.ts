@@ -7,6 +7,8 @@ export const slideOption = {
   },
   pagination: {
     clickable: true,
+    nextEl: '.Fleet__nav-btn--next',
+    prevEl: '.Fleet__nav-btn--prev',
   },
   speed: 1200,
   breakpoints: {

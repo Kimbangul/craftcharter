@@ -35,8 +35,11 @@
       transform: translateX(-50%);
 
       svg {
-        width: 6rem;
-        height: 6rem;
+        @include arrow-btn;
+      }
+
+      &:hover svg {
+        @include arrow-btn(true);
       }
     }
   }

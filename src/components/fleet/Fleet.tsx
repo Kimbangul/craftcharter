@@ -54,6 +54,10 @@ const Fleet = () => {
           </a>
         </SwiperSlide>
       </Swiper>
+      <div>
+        <button className='Fleet__nav-btn'></button>
+        <button className='Fleet__nav-btn'></button>
+      </div>
       <div className='Fleet__btn'>
         <a href='#'>Explore our fleet</a>
       </div>
