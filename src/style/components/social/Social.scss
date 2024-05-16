@@ -1,5 +1,15 @@
 .Social {
   @include flex(flex-start, center, 2.4rem);
+
+  &-item a {
+    svg {
+      transition: transform 0.3s;
+      will-change: transform;
+    }
+    &:hover svg {
+      transform: scale(1.1);
+    }
+  }
 }
 
 .Credit {

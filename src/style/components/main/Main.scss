@@ -99,6 +99,24 @@
     &__logo {
       transform: none;
       position: static;
+
+      #clip-path-left,
+      #clip-path-right {
+        transition: transform 0.3s;
+      }
+      #clip-path-left {
+        transform: translateX(100%);
+      }
+      #clip-path-right {
+        transform: translateX(-100%);
+      }
+
+      &[data-state='active'] {
+        #clip-path-left,
+        #clip-path-right {
+          transform: translateX(0);
+        }
+      }
     }
 
     &__btn {

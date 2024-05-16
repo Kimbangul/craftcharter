@@ -12,6 +12,7 @@ const Main = () => {
   const mainRef = useRef<null | HTMLDivElement>(null);
   const [isVisible, setIsVisible] = useState(false);
   const [scrollDir, setScrollDir] = useState<null | 'up' | 'down' | 'top'>(null);
+  const [isIntro, setIsIntro] = useState(false);
 
   const scroll = useScroll();
 
@@ -47,6 +48,12 @@ const Main = () => {
     }, 1000);
   };
 
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setIsIntro(true);
+    }, 3000);
+  }, []);
+
   // useEffect(() => {
   //   if (scroll.scrollDir === 'down') {
   //     // setNextSection();
@@ -56,7 +63,7 @@ const Main = () => {
 
   return (
     <section className='Main' ref={observer.target}>
-      <div className='Main__logo'>
+      <div className='Main__logo' data-state={isIntro ? 'active' : 'inactive'}>
         <MainIcon />
       </div>
       <div className='Main__btn--next'>
