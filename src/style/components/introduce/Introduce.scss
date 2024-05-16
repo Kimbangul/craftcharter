@@ -14,10 +14,11 @@
 
   &__inner {
     @include flex(space-between, center);
-    max-width: $max-inner;
+    max-width: 1440px;
+
     margin: 0 auto;
     overflow: hidden;
-    flex: 1 0 0;
+    // flex: 1 0 0;
   }
 
   &__title {
@@ -51,6 +52,8 @@
     text-align: right;
     padding: 0 8% !important;
     width: 50%;
+    flex-grow: 1;
+    z-index: 5 !important;
 
     .swiper-button {
       @mixin btnStyle {
@@ -130,10 +133,13 @@
     transition: transform 0.7s !important;
     &-container {
       position: relative;
-      width: 48rem;
+      width: 100%;
+      max-width: 48rem;
       height: 60rem;
       overflow-x: visible !important;
-      z-index: 4;
+      z-index: 4 !important;
+      margin: 0 !important;
+      flex-shrink: 1 !important;
     }
     width: 100%;
     height: 100%;
@@ -148,6 +154,25 @@
     }
   }
 
+  &__nav {
+    &-btn {
+      cursor: pointer;
+      &-container {
+        display: flex;
+        justify-content: flex-end;
+        gap: 2rem;
+      }
+      &--prev {
+        @extend .Introduce__nav-btn;
+        @include swiper-nav-btn(prev);
+      }
+      &--next {
+        @extend .Introduce__nav-btn;
+        @include swiper-nav-btn(next);
+      }
+    }
+  }
+
   @media (max-width: $pc-width) {
     &__slider {
       padding: 0rem 0 0 6rem !important;
@@ -158,10 +183,10 @@
         width: 100%;
         aspect-ratio: 235 / 300;
         width: 40%;
-        flex-shrink: 1;
         margin-right: 0;
         margin-left: 0;
         align-self: stretch;
+        margin: 0 !important;
       }
       img {
         object-fit: contain;
@@ -188,25 +213,19 @@
     &__slider {
       width: 100%;
       margin-left: 0;
-      padding: 8rem 4rem 0 4rem !important;
+      padding: 2.4rem 4rem 0 4rem !important;
       display: flex;
       flex-wrap: wrap;
 
-      & .swiper-button {
-        @mixin btn-style {
-          position: absolute;
-          top: 2rem;
-          left: 0;
-        }
-        &-prev {
-          @include btn-style();
-          left: calc(4rem - 1rem);
-        }
-        &-next {
-          @include btn-style();
-          left: calc(4rem + 6rem - 1rem);
-        }
-      }
+      display: flex !important;
+      flex-wrap: wrap;
+      flex-direction: column-reverse;
+    }
+
+    &__nav-btn-container {
+      justify-content: flex-start;
+      margin-left: -1.2rem;
+      gap: 1rem;
     }
 
     &__title {

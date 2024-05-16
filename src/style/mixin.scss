@@ -122,6 +122,7 @@
 
   &:disabled {
     opacity: 0.4;
+    cursor: default;
     &:hover {
       @include arrow-btn(false);
     }

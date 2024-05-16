@@ -6,10 +6,13 @@ import CARD01 from 'assets/image/introduce/card01.jpeg';
 import CARD02 from 'assets/image/introduce/card02.jpeg';
 import CARD03 from 'assets/image/introduce/card03.jpeg';
 
+import { ReactComponent as ARROW_DOWN } from 'assets/image/main/arrow-down.svg';
+
 const Introduce = () => {
   const [activeIdx, setActiveIdx] = useState<number>(0);
   const imgRef = useRef<null | SwiperRef>(null);
   const sectionRef = useRef<null | HTMLDivElement>(null);
+  const navRef = [useRef(), useRef()];
 
   // FUNCTION 슬라이드 동기화
   useEffect(() => {
@@ -20,7 +23,20 @@ const Introduce = () => {
   return (
     <section className='Introduce' ref={sectionRef}>
       <div className='Introduce__inner'>
-        <Swiper className='Introduce__slider' {...slideOption} onSlideChange={(swiper) => setActiveIdx(swiper.activeIndex)}>
+        <Swiper
+          className='Introduce__slider'
+          {...slideOption}
+          onSlideChange={(swiper) => setActiveIdx(swiper.activeIndex)}
+          onInit={(swiper) => {
+            if (typeof swiper.params.navigation !== 'object') return;
+            swiper.params.navigation.prevEl = navRef[0].current;
+            swiper.params.navigation.nextEl = navRef[1].current;
+
+            swiper.navigation.destroy();
+            swiper.navigation.init();
+            swiper.navigation.update();
+          }}
+        >
           <SwiperSlide className='Introduce__slide'>
             <div className='Introduce__text-container'>
               <h2 className='Introduce__title'>
@@ -64,6 +80,15 @@ const Introduce = () => {
               </div>
             </div>
           </SwiperSlide>
+
+          <div className='Introduce__nav-btn-container'>
+            <button className='Introduce__nav-btn--prev' ref={navRef[0]}>
+              <ARROW_DOWN />
+            </button>
+            <button className='Introduce__nav-btn--next' ref={navRef[1]}>
+              <ARROW_DOWN />
+            </button>
+          </div>
         </Swiper>
         <Swiper ref={imgRef} className='Introduce__img-container' {...cardOption}>
           <SwiperSlide className='Introduce__img'>
