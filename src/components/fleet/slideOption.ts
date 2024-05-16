@@ -1,5 +1,4 @@
 import { Navigation, Pagination } from 'swiper/modules';
-import { SwiperProps } from 'swiper/react';
 
 export const slideOption = {
   modules: [Navigation, Pagination],
@@ -18,7 +17,7 @@ export const slideOption = {
     },
     1024: {
       navigation: {
-        enabled: true,
+        // enabled: true,
       },
     },
   },

@@ -109,3 +109,29 @@
     @include arrow-btn(true);
   }
 }
+
+@mixin swiper-nav-btn($direction: prev) {
+  background: transparent;
+  cursor: pointer;
+  transition: opacity 0.3s;
+  @include arrow-btn();
+
+  &:hover {
+    @include arrow-btn(true);
+  }
+
+  &:disabled {
+    opacity: 0.4;
+    &:hover {
+      @include arrow-btn(false);
+    }
+  }
+
+  @if ($direction == prev) {
+    @extend .Fleet__nav-btn;
+    transform: rotateZ(90deg) rotateY(180deg);
+  } @else {
+    @extend .Fleet__nav-btn;
+    transform: rotateZ(-90deg);
+  }
+}

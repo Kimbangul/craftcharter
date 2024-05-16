@@ -22,6 +22,7 @@
     margin: 12rem auto;
     width: 98rem;
     overflow: visible;
+    cursor: grab;
 
     &:active {
       outline: none;
@@ -42,30 +43,40 @@
         }
       }
     }
-
-    &-button {
-      &-prev {
-        @include nav-btn();
-        transform: rotateZ(90deg) rotateY(180deg);
-      }
-
-      &-next {
-        @include nav-btn();
-        transform: rotateZ(-90deg);
-      }
-    }
   }
 
   &__nav {
     &-btn {
-      width: 5rem;
-      height: 5rem;
+      pointer-events: initial;
+      cursor: grab !important;
+      &-container {
+        position: absolute;
+        z-index: 3;
+        display: flex;
+        justify-content: space-between;
+        pointer-events: none;
+        width: 100%;
+        top: 50%;
+        transform: translateY(-50%);
 
+        @media (max-width: 1024px) {
+          display: none;
+        }
+
+        @media (max-width: 1200px) {
+          width: 85rem;
+          margin: 0 auto;
+          left: 50%;
+          transform: translateX(-50%) translateY(-50%);
+        }
+      }
       &--prev {
         @extend .Fleet__nav-btn;
+        @include swiper-nav-btn(prev);
       }
       &--next {
         @extend .Fleet__nav-btn;
+        @include swiper-nav-btn(next);
       }
     }
   }
