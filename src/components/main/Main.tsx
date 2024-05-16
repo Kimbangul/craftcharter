@@ -10,11 +10,8 @@ import { ReactComponent as ARROW_DOWN } from '../../assets/image/main/arrow-down
 
 const Main = () => {
   const mainRef = useRef<null | HTMLDivElement>(null);
-  const [isVisible, setIsVisible] = useState(false);
   const [scrollDir, setScrollDir] = useState<null | 'up' | 'down' | 'top'>(null);
   const [isIntro, setIsIntro] = useState(false);
-
-  const scroll = useScroll();
 
   useEffect(() => {
     if (scrollDir !== null) {
@@ -23,46 +20,14 @@ const Main = () => {
     }
   }, [scrollDir]);
 
-  const observer = useObserver(
-    (entry: IntersectionObserverEntry[]) => {
-      if (entry[0].isIntersecting) {
-        setIsVisible(true);
-      } else {
-        setIsVisible(false);
-      }
-    },
-    { threshold: 0.5 }
-  );
-
-  const setNextSection = () => {
-    const sec = document.querySelector('.Introduce');
-    console.log(sec);
-    if (!sec) return;
-
-    document.body.style.height = '100vh';
-    document.body.style.overflow = 'hidden';
-    setTimeout(() => {
-      sec.scrollIntoView({ behavior: 'smooth', block: 'start' });
-      document.body.style.height = 'auto';
-      document.body.style.overflow = 'auto';
-    }, 1000);
-  };
-
   useEffect(() => {
     const timer = setTimeout(() => {
       setIsIntro(true);
     }, 3000);
   }, []);
 
-  // useEffect(() => {
-  //   if (scroll.scrollDir === 'down') {
-  //     // setNextSection();
-  //     console.log('실행')
-  //   }
-  // }, [scroll.scrollDir, scroll, prevScroll]);
-
   return (
-    <section className='Main' ref={observer.target}>
+    <div className='Main'>
       <div className='Main__logo' data-state={isIntro ? 'active' : 'inactive'}>
         <MainIcon />
       </div>
@@ -78,7 +43,7 @@ const Main = () => {
         <source src={MAIN_BG01} />
         <source src={MAIN_BG02} />
       </video>
-    </section>
+    </div>
   );
 };
 

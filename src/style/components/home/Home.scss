@@ -1,0 +1,36 @@
+.Home {
+  position: relative;
+  min-height: 100vh;
+
+  .Main,
+  .Introduce {
+    // position: absolute;
+    // top: 0;
+    opacity: 0;
+    pointer-events: none;
+  }
+  .Main {
+    position: fixed;
+    z-index: 30;
+    transition: opacity 0.3s;
+  }
+  .Introduce {
+    transform: translateY(50%);
+    transition: opacity 0.3s transform 0.3s;
+  }
+
+  &[data-scene='0'] {
+    .Main {
+      opacity: 1;
+      pointer-events: initial;
+    }
+  }
+
+  &[data-scene='1'] {
+    .Introduce {
+      opacity: 1;
+      transform: translateY(0);
+      pointer-events: initial;
+    }
+  }
+}

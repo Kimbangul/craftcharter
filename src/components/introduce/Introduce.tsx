@@ -23,7 +23,7 @@ const Introduce = () => {
   }, [activeIdx]);
 
   return (
-    <section className='Introduce' ref={sectionRef}>
+    <div className='Introduce' ref={sectionRef}>
       <div className='Introduce__plane-container'>
         <Lottie className='Introduce__plane' animationData={PLANE} loop={true} />
       </div>
@@ -107,7 +107,7 @@ const Introduce = () => {
           </SwiperSlide>
         </Swiper>
       </div>
-    </section>
+    </div>
   );
 };
 

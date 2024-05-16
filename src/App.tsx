@@ -1,21 +1,22 @@
 import 'style/style.scss';
 
 import Header from 'components/header/Header';
-import Main from 'components/main/Main';
+import Home from 'components/home/Home';
 import SideCta from 'components/side/SideCta';
-import Introduce from 'components/introduce/Introduce';
 import Fleet from 'components/fleet/Fleet';
 import Service from 'components/service/Service';
 import About from 'components/about/About';
 import Contact from 'components/contact/Contact';
 import Footer from 'components/footer/Footer';
+import { useEffect } from 'react';
 
 function App() {
   return (
     <div className='Wrapper'>
       <Header />
-      <Main />
-      <Introduce />
+      <Home />
+      {/* <Main />
+      <Introduce /> */}
       <SideCta />
       <Fleet />
       <Service />
