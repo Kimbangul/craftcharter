@@ -8,35 +8,37 @@ const Home = () => {
   const [isPreventScroll, setIsPreventScroll] = useState(false);
   const scroll = useScroll();
 
+  const changeScene = (scene: number) => {
+    console.log(scene);
+    setIsPreventScroll(true);
+    setScene(scene);
+    setTimeout(() => {
+      setIsPreventScroll(false);
+    }, 1500);
+  };
+
   useEffect(() => {
     console.log(scroll.scroll, scroll.scrollDir);
-    if (scroll.scroll > 10 && scroll.scrollDir === 'down') {
-      setScene(1);
+    if (scene === 0 && scroll.scroll > 10 && scroll.scrollDir === 'down') {
+      changeScene(1);
     } else if (scroll.scroll < 50 && scroll.scrollDir !== 'down') {
-      setScene(0);
+      changeScene(0);
     }
-  }, [scroll.scroll, scroll.scrollDir]);
+  }, [scroll.scroll, scroll.scrollDir, scene]);
 
-  const sectionTransitionEvent = (e: WheelEvent) => {
-    // const scroll =
-    // if ()
-  };
-
-  const changeSection = (scrollDir: 'up' | 'down' | 'top', scene: number) => {
-    console.log(scrollDir, scene);
-  };
-
-  // useEffect(() => {
-  //   document.addEventListener('wheel', () => {sectionTransitionEvent()}, { passive: false });
-
-  //   return () => {
-  //     document.removeEventListener('wheel', sectionTransitionEvent);
-  //   };
-  // }, []);
+  useEffect(() => {
+    if (isPreventScroll) {
+      document.body.style.height = '100vh';
+      document.body.style.overflowY = 'hidden';
+    } else {
+      document.body.style.height = 'auto';
+      document.body.style.overflowY = 'visible';
+    }
+  }, [isPreventScroll]);
 
   return (
     <section className='Home' data-scene={scene}>
-      <Main />
+      <Main active={scene === 0} />
       <Introduce />
     </section>
   );

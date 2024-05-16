@@ -22,6 +22,25 @@
     transform: translateX(-50%) translateY(-50%);
     z-index: 2;
     mix-blend-mode: difference;
+
+    #clip-path-left,
+    #clip-path-right {
+      transition: transform 0.3s;
+    }
+    #clip-path-left {
+      transform: translateX(100%);
+    }
+    #clip-path-right {
+      transform: translateX(-100%);
+    }
+
+    &[data-state='active'] {
+      #clip-path-left,
+      #clip-path-right {
+        transform: translateX(0);
+        transition: transform 0.3s 0.3s;
+      }
+    }
   }
 
   &__btn {
@@ -99,24 +118,6 @@
     &__logo {
       transform: none;
       position: static;
-
-      #clip-path-left,
-      #clip-path-right {
-        transition: transform 0.3s;
-      }
-      #clip-path-left {
-        transform: translateX(100%);
-      }
-      #clip-path-right {
-        transform: translateX(-100%);
-      }
-
-      &[data-state='active'] {
-        #clip-path-left,
-        #clip-path-right {
-          transform: translateX(0);
-        }
-      }
     }
 
     &__btn {

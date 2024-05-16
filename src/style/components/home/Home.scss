@@ -1,6 +1,8 @@
 .Home {
   position: relative;
   min-height: 100vh;
+  padding-top: 100vh;
+  background: $black;
 
   .Main,
   .Introduce {
@@ -11,6 +13,7 @@
   }
   .Main {
     position: fixed;
+    top: 0;
     z-index: 30;
     transition: opacity 0.3s;
   }
