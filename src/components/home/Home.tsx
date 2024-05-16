@@ -18,10 +18,11 @@ const Home = () => {
   };
 
   useEffect(() => {
+    const introTop = document.querySelector('.Main').getBoundingClientRect().height;
     console.log(scroll.scroll, scroll.scrollDir);
     if (scene === 0 && scroll.scroll > 10 && scroll.scrollDir === 'down') {
       changeScene(1);
-    } else if (scroll.scroll < 50 && scroll.scrollDir !== 'down') {
+    } else if (scroll.scroll < introTop - 50 && scroll.scrollDir !== 'down') {
       changeScene(0);
     }
   }, [scroll.scroll, scroll.scrollDir, scene]);
@@ -35,6 +36,15 @@ const Home = () => {
       document.body.style.overflowY = 'visible';
     }
   }, [isPreventScroll]);
+
+  useEffect(() => {
+    console.log('scene change');
+    if (scene === 0) {
+      window.scrollTo({ top: 0 });
+    } else if (scene === 1) {
+      document.querySelector('.Introduce').scrollIntoView();
+    }
+  }, [scene]);
 
   return (
     <section className='Home' data-scene={scene}>
