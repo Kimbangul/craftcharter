@@ -1,12 +1,14 @@
-import { useState } from 'react';
+import { useMemo, useState } from 'react';
 import Logo from 'components/common/logo/Logo';
 import Nav from 'components/header/Nav';
 import useScroll from 'hooks/useScroll';
-import { ReactComponent as NavIcon } from 'assets/image/common/nav-icon.svg';
+import { ReactComponent as NavIconTop } from 'assets/image/common/nav-icon-top.svg';
+import { ReactComponent as NavIconBottom } from 'assets/image/common/nav-icon-bottom.svg';
 
 const Header = () => {
   const [isNavOpen, setIsNavOpen] = useState<boolean>(false);
   const scroll = useScroll();
+  const logoColor = useMemo(() => (scroll.scrollDir === 'up' ? '#000' : '#fff'), [scroll.scrollDir]);
 
   const onClickNavBtn = () => {
     setIsNavOpen(true);
@@ -15,9 +17,10 @@ const Header = () => {
   return (
     <header className={`Header ${scroll.scrollDir}`}>
       <div className='Header__inner'>
-        <Logo fill={scroll.scrollDir === 'up' ? '#000' : '#fff'} />
+        <Logo fill={logoColor} />
         <button className='Header__btn--nav' onClick={onClickNavBtn}>
-          <NavIcon fill='#fff' />
+          <NavIconTop fill={logoColor} />
+          <NavIconBottom fill={logoColor} />
         </button>
         <a href='#' className='Header__btn--contact'>
           contact

@@ -53,6 +53,27 @@
       padding: 1rem;
       cursor: pointer;
       background: transparent;
+      position: relative;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      svg {
+        position: absolute;
+        transition: transform 0.3s;
+        will-change: transform;
+      }
+
+      &:hover {
+        svg {
+          &:first-child {
+            transform: translate(-0.8rem, 0.3rem);
+          }
+          &:nth-child(2) {
+          }
+          transform: translate(0.8rem, -0.3rem);
+        }
+      }
     }
 
     &--contact {
