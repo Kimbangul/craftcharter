@@ -1,7 +1,9 @@
 import { useState, useEffect, useRef } from 'react';
+import Lottie from 'lottie-react';
 import { Swiper, SwiperRef, SwiperSlide } from 'swiper/react';
 import { slideOption, cardOption } from 'components/introduce/slideOption';
 
+import PLANE from 'assets/lottie/plane.json';
 import CARD01 from 'assets/image/introduce/card01.jpeg';
 import CARD02 from 'assets/image/introduce/card02.jpeg';
 import CARD03 from 'assets/image/introduce/card03.jpeg';
@@ -22,6 +24,9 @@ const Introduce = () => {
 
   return (
     <section className='Introduce' ref={sectionRef}>
+      <div className='Introduce__plane-container'>
+        <Lottie className='Introduce__plane' animationData={PLANE} loop={true} />
+      </div>
       <div className='Introduce__inner'>
         <Swiper
           className='Introduce__slider'

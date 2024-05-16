@@ -6,6 +6,17 @@
   position: relative;
   z-index: 1;
 
+  &__plane {
+    transform: rotate(-15deg);
+    transform-origin: left;
+    &-container {
+      width: 43rem;
+      position: absolute;
+      top: calc(50vh - 21.5rem);
+      z-index: 1;
+    }
+  }
+
   &__text {
     position: relative;
     z-index: 2;
@@ -34,6 +45,13 @@
   }
 
   @media (max-width: $tb-width) {
+    &__plane {
+      &-container {
+        width: 30rem;
+        top: calc(50vh - 15rem);
+      }
+    }
+
     &__title {
       font-size: 2.8rem;
     }

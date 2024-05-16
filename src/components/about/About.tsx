@@ -1,6 +1,7 @@
+import Lottie from 'lottie-react';
 import ABOUT_BG01 from 'assets/image/about/about_bg01.webp';
 import ABOUT_BG02 from 'assets/image/about/about_bg02.jpeg';
-import { ReactComponent as METER } from 'assets/image/about/meter.svg';
+import METER from 'assets/lottie/meter.json';
 
 const About = () => {
   return (
@@ -25,7 +26,7 @@ const About = () => {
         </div>
       </div>
       <div className='About__svg-container'>
-        <METER />
+        <Lottie animationData={METER} loop={true} />
       </div>
       <div className='About__img-container' data-column='2'>
         <img src={ABOUT_BG02} alt='' />

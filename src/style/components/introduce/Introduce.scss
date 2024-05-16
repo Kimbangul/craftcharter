@@ -21,6 +21,17 @@
     // flex: 1 0 0;
   }
 
+  &__plane {
+    transform: rotate(-30deg);
+    transform-origin: left;
+    &-container {
+      width: 30rem;
+      position: absolute;
+      z-index: 0;
+      left: 0;
+    }
+  }
+
   &__title {
     @include sec-title;
     @include fade-transition(0.7);
@@ -208,6 +219,12 @@
     }
     &__inner {
       flex-direction: column-reverse;
+    }
+
+    &__plane {
+      &-container {
+        display: none;
+      }
     }
 
     &__slider {
