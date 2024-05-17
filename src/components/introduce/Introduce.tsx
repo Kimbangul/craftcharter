@@ -1,7 +1,8 @@
-import { useState, useEffect, useRef } from 'react';
+import { useState, useEffect, useRef, useMemo } from 'react';
 import Lottie from 'lottie-react';
 import { Swiper, SwiperRef, SwiperSlide } from 'swiper/react';
 import { slideOption, cardOption } from 'components/introduce/slideOption';
+import { ScenePropsType } from 'components/home/type';
 
 import PLANE from 'assets/lottie/plane.json';
 import CARD01 from 'assets/image/introduce/card01.jpeg';
@@ -10,11 +11,13 @@ import CARD03 from 'assets/image/introduce/card03.jpeg';
 
 import { ReactComponent as ARROW_DOWN } from 'assets/image/main/arrow-down.svg';
 
-const Introduce = () => {
+const Introduce: React.FC<ScenePropsType> = ({ active }) => {
   const [activeIdx, setActiveIdx] = useState<number>(0);
   const imgRef = useRef<null | SwiperRef>(null);
   const sectionRef = useRef<null | HTMLDivElement>(null);
   const navRef = [useRef(), useRef()];
+
+  const state = useMemo(() => (active ? 'active' : 'inactive'), [active]);
 
   // FUNCTION 슬라이드 동기화
   useEffect(() => {
@@ -43,7 +46,7 @@ const Introduce = () => {
           }}
         >
           <SwiperSlide className='Introduce__slide'>
-            <div className='Introduce__text-container'>
+            <div className='Introduce__text-container' data-state={state}>
               <h2 className='Introduce__title'>
                 Masters in the art of
                 <br className='pc-only' /> moving you
@@ -95,7 +98,7 @@ const Introduce = () => {
             </button>
           </div>
         </Swiper>
-        <Swiper ref={imgRef} className='Introduce__img-container' {...cardOption}>
+        <Swiper ref={imgRef} className='Introduce__img-container' {...cardOption} data-state={state}>
           <SwiperSlide className='Introduce__img'>
             <img src={CARD01} alt='' />
           </SwiperSlide>

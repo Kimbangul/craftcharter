@@ -15,16 +15,18 @@
     position: fixed;
     top: 0;
     z-index: 30;
-    transition: opacity 0.3s;
+    transition: opacity 0.3s 0.3s;
   }
   .Introduce {
-    transform: translateY(50%);
-    transition: opacity 0.3s transform 0.3s;
+    transition:
+      opacity 0.3s,
+      transform 0.3s;
   }
 
   &[data-scene='0'] {
     .Main {
       opacity: 1;
+      transition: opacity 0.3s;
       pointer-events: initial;
     }
   }
@@ -32,7 +34,6 @@
   &[data-scene='1'] {
     .Introduce {
       opacity: 1;
-      transform: translateY(0);
       pointer-events: initial;
     }
   }

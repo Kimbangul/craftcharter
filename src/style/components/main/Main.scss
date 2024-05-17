@@ -52,12 +52,19 @@
       left: 50%;
       bottom: 4rem;
       transform: translateX(-50%) translateY(calc(4rem + 100%));
-      will-change: transform;
-      transition: transform 0.3s;
+      will-change: transform opacity;
+      transition:
+        transform 0.3s,
+        opacity 0.3s;
+      opacity: 0;
       background: transparent;
 
       &[data-state='active'] {
         transform: translateX(-50%);
+        transition:
+          transform 0.2s 0.2s,
+          opacity 0.2s 0.3s;
+        opacity: 1;
       }
 
       svg {
@@ -115,6 +122,12 @@
     z-index: 1;
     overflow: hidden;
     object-fit: cover;
+    opacity: 0;
+    transition: opacity 0.3s;
+
+    &[data-state='active'] {
+      opacity: 1;
+    }
   }
 
   @media (max-width: $pc-width) {

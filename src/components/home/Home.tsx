@@ -21,7 +21,10 @@ const Home = () => {
     const introTop = document.querySelector('.Main').getBoundingClientRect().height;
     console.log(scroll.scroll, scroll.scrollDir);
     if (scene === 0 && scroll.scroll > 10 && scroll.scrollDir === 'down') {
-      changeScene(1);
+      setScene(0.5);
+      setTimeout(() => {
+        changeScene(1);
+      }, 1500);
     } else if (scroll.scroll < introTop - 50 && scroll.scrollDir !== 'down') {
       changeScene(0);
     }
@@ -49,7 +52,7 @@ const Home = () => {
   return (
     <section className='Home' data-scene={scene}>
       <Main active={scene === 0} />
-      <Introduce />
+      <Introduce active={scene === 1} />
     </section>
   );
 };
