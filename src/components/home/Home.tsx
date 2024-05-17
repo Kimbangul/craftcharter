@@ -66,6 +66,7 @@ const Home = () => {
 
   return (
     <section className='Home' data-scene={scene}>
+      <h1 className='sound-only'>Craftcharter</h1>
       {scene === -1 && <Intro />}
       <Main active={scene === 0} />
       <Introduce active={scene === 1} />

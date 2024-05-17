@@ -10,6 +10,7 @@ import Contact from 'components/contact/Contact';
 import Footer from 'components/footer/Footer';
 import { useState } from 'react';
 import SideCtaPop, { CtaPopContext } from 'components/side/SideCtaPop';
+import ContactPop from 'components/contact/ContactPop';
 
 function App() {
   const [isOpenCtaPop, setIsOpenCtaPop] = useState(false);
@@ -24,6 +25,7 @@ function App() {
         <Service />
         <About />
         <Contact />
+        <ContactPop />
         <Footer />
         <SideCtaPop />
       </div>
