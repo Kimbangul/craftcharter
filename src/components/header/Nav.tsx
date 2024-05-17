@@ -58,7 +58,7 @@ const Nav: React.FC<NavPropsType> = ({ open, setOpen }) => {
             <li className='Nav__footer-info-copy'>© 2023 Craft</li>
           </ul>
         </div>
-        <SideCta />
+        <SideCta beforeOpen={onClickNavBtn} />
       </nav>
     </div>
   );

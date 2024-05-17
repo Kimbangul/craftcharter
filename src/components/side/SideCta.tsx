@@ -2,7 +2,7 @@ import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import { ReactComponent as ARROW } from 'assets/image/side/arrow.svg';
 import { setBodyPreventScroll } from 'util/index';
 
-const SideCta = () => {
+const SideCta: React.FC<SideCtaPropsType> = ({ beforeOpen }) => {
   const [isOpenPop, setIsOpenPop] = useState(false);
   const popRef = useRef(null);
 
@@ -18,6 +18,7 @@ const SideCta = () => {
   const onClickCta = useCallback(
     (e: React.MouseEvent) => {
       e.preventDefault();
+      if (beforeOpen) beforeOpen();
       if (isOpenPop) {
         setIsOpenPop(false);
       } else {
@@ -67,5 +68,9 @@ const SideCta = () => {
     </>
   );
 };
+
+export interface SideCtaPropsType {
+  beforeOpen?: () => void;
+}
 
 export default SideCta;
