@@ -8,25 +8,24 @@ import Service from 'components/service/Service';
 import About from 'components/about/About';
 import Contact from 'components/contact/Contact';
 import Footer from 'components/footer/Footer';
-import { createContext, useEffect, useState } from 'react';
-import { CtaPopContext } from 'components/side/SideCtaPop';
+import { useState } from 'react';
+import SideCtaPop, { CtaPopContext } from 'components/side/SideCtaPop';
 
 function App() {
   const [isOpenCtaPop, setIsOpenCtaPop] = useState(false);
 
   return (
-    <CtaPopContext.Provider value={isOpenCtaPop}>
+    <CtaPopContext.Provider value={{ isOpenCtaPop, setIsOpenCtaPop }}>
       <div className='Wrapper'>
         <Header />
         <Home />
-        {/* <Main />
-      <Introduce /> */}
         <SideCta />
         <Fleet />
         <Service />
         <About />
         <Contact />
         <Footer />
+        <SideCtaPop />
       </div>
     </CtaPopContext.Provider>
   );

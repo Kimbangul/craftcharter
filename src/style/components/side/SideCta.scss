@@ -126,8 +126,10 @@
       padding: 12rem 10rem 0rem 10rem;
       flex-shrink: 0;
       &-item {
-        a {
+        button {
           padding-bottom: 3rem;
+          background: none;
+          cursor: pointer;
         }
         position: relative;
         opacity: 0.2;
@@ -179,7 +181,7 @@
         padding-top: 5rem;
         padding-left: 3rem;
         &-item {
-          a {
+          button {
             padding-bottom: 1.2rem;
           }
         }
