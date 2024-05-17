@@ -3,10 +3,12 @@ import useScroll from 'hooks/useScroll';
 import Intro from 'components/intro/Intro';
 import Main from 'components/main/Main';
 import Introduce from 'components/introduce/Introduce';
+import { setBodyPreventScroll } from 'util/index';
 
 const Home = () => {
   const [scene, setScene] = useState(-1);
   const [isPreventScroll, setIsPreventScroll] = useState(true);
+  const timerRef = useRef(null);
   const scroll = useScroll();
 
   const changeScene = (scene: number) => {
@@ -14,20 +16,23 @@ const Home = () => {
     setScene(scene);
     setTimeout(() => {
       setIsPreventScroll(false);
+      timerRef.current = null;
     }, 1500);
   };
 
   // FUNCTION 스크롤 방향에 따른 scene 제어
   useEffect(() => {
+    if (timerRef.current) return;
     const introTop = document.querySelector('.Main').getBoundingClientRect().height;
+    console.log(scene, scroll.scroll, scroll.scrollDir);
     if (scene === 0 && scroll.scroll > 10 && scroll.scrollDir === 'down') {
       setScene(0.5);
-      setTimeout(() => {
+      timerRef.current = setTimeout(() => {
         changeScene(1);
       }, 1000);
     } else if (scene === 1 && scroll.scroll < introTop - 50 && scroll.scrollDir !== 'down') {
       setScene(0.5);
-      setTimeout(() => {
+      timerRef.current = setTimeout(() => {
         changeScene(0);
       }, 1000);
     }
@@ -36,13 +41,11 @@ const Home = () => {
   // FUNCTION body scroll 가능여부 제어
   useEffect(() => {
     if (isPreventScroll) {
-      document.body.style.height = '100vh';
-      document.body.style.overflowY = 'hidden';
+      setBodyPreventScroll(true);
     } else {
-      document.body.style.height = 'auto';
-      document.body.style.overflowY = 'visible';
+      setBodyPreventScroll(false);
     }
-  }, [isPreventScroll]);
+  }, [isPreventScroll, setBodyPreventScroll]);
 
   // FUNCTION scene이 변경되었을 때 스크롤 이동
   useEffect(() => {

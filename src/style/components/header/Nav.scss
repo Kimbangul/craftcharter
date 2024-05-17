@@ -179,6 +179,9 @@
         transform: none;
         width: 100%;
         grid-area: e;
+        &:hover {
+          width: 100%;
+        }
         &:hover .SideCta__text {
           transform: none;
         }
