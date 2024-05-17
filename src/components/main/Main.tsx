@@ -7,6 +7,11 @@ import { ReactComponent as MainIcon } from 'assets/image/common/logo-icon.svg';
 import { ReactComponent as ARROW_DOWN } from 'assets/image/main/arrow-down.svg';
 import { ScenePropsType } from 'components/home/type';
 
+const onClickBtn = () => {
+  console.log('click');
+  window.scrollTo({ top: window.scrollY + 100 });
+};
+
 const Main: FC<ScenePropsType> = ({ active }) => {
   const state = useMemo(() => (active ? 'active' : 'inactive'), [active]);
   const videoRef = useRef<HTMLVideoElement>();
@@ -27,7 +32,7 @@ const Main: FC<ScenePropsType> = ({ active }) => {
       <div className='Main__logo' data-state={state}>
         <MainIcon />
       </div>
-      <button className='Main__btn--next' data-state={state}>
+      <button className='Main__btn--next' data-state={state} onClick={onClickBtn}>
         <p className='Main__text'>
           <span className='Main__text-line'>fly your way</span>
           <span className='Main__text-line'>Craft the perfect journey</span>

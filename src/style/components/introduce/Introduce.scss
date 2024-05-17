@@ -32,21 +32,6 @@
     }
   }
 
-  &__text-container {
-    opacity: 0;
-    transition:
-      opacity 0.3s,
-      transform 0.3s;
-    transform: translate3d(0, 20%, 0);
-    &[data-state='active'] {
-      opacity: 1;
-      transform: translate3d(0, 0%, 0);
-      transition:
-        opacity 0.15s 0.3s,
-        transform 0.15s 0.3s;
-    }
-  }
-
   &__title {
     @include sec-title;
     @include fade-transition(0.7);
@@ -80,6 +65,17 @@
     width: 50%;
     flex-grow: 1;
     z-index: 5 !important;
+    transform: translate3d(0, 20%, 0);
+    opacity: 0;
+
+    &[data-state='active'] {
+      opacity: 1;
+      transform: translate3d(0, 0%, 0) !important;
+      transition:
+        opacity 0.3s 0.15s,
+        transform 0.5s 0.15s;
+      opacity: 1;
+    }
 
     .swiper-button {
       @mixin btnStyle {
@@ -107,6 +103,11 @@
   &__slide {
     transition: opacity 0.3s;
     text-align: left;
+
+    opacity: 0;
+    transition:
+      opacity 0.3s,
+      transform 0.3s;
 
     &.swiper-slide-active {
       opacity: 1;

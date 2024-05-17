@@ -44,9 +44,10 @@ const Introduce: React.FC<ScenePropsType> = ({ active }) => {
             swiper.navigation.init();
             swiper.navigation.update();
           }}
+          data-state={state}
         >
           <SwiperSlide className='Introduce__slide'>
-            <div className='Introduce__text-container' data-state={state}>
+            <div className='Introduce__text-container'>
               <h2 className='Introduce__title'>
                 Masters in the art of
                 <br className='pc-only' /> moving you

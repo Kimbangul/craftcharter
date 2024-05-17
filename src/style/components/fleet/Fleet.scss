@@ -31,7 +31,7 @@
     &-slide {
       padding: 0 4.5rem;
 
-      &-active a:hover {
+      &-active:hover {
         img {
           opacity: 0.3;
           transform: scale(0.92);
@@ -199,7 +199,7 @@
       }
     }
 
-    .swiper-slide-active a:hover {
+    .swiper-slide-active:hover {
       .Fleet__item-title {
         transform: none;
       }
