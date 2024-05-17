@@ -5,7 +5,7 @@ export const CtaPopContext = createContext(null);
 
 const SideCtaPop = () => {
   const { isOpenCtaPop, setIsOpenCtaPop } = useContext(CtaPopContext);
-  const popRef = useRef(null);
+  const popRef = useRef<HTMLElement>(null);
 
   useEffect(() => {
     if (isOpenCtaPop) {
@@ -16,9 +16,18 @@ const SideCtaPop = () => {
     }
   }, [isOpenCtaPop]);
 
+  // FUNCTION 애니메이션을 위해 팝업을 닫을 때의 함수를 따로 처리
+  const setClosePop = () => {
+    if (!popRef.current) return;
+    popRef.current.setAttribute('data-close', 'true');
+    setTimeout(() => {
+      setIsOpenCtaPop(false);
+    }, 300);
+  };
+
   const onClickPop = (e: React.MouseEvent) => {
     if (e.target !== e.currentTarget) return;
-    setIsOpenCtaPop(false);
+    setClosePop();
   };
 
   return (
@@ -26,12 +35,7 @@ const SideCtaPop = () => {
       {isOpenCtaPop && (
         <section className='SideCta__pop' ref={popRef} onClick={onClickPop}>
           <div className='SideCta__pop-inner'>
-            <button
-              className='SideCta__pop-close'
-              onClick={() => {
-                setIsOpenCtaPop(false);
-              }}
-            >
+            <button className='SideCta__pop-close' onClick={setClosePop}>
               <span className='SideCta__pop-close-inner'>close</span>
             </button>
             <ul className='SideCta__pop-tab'>

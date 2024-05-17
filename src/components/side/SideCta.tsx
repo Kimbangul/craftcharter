@@ -10,7 +10,10 @@ const SideCta: React.FC<SideCtaPropsType> = ({ beforeOpen }) => {
       e.preventDefault();
       if (beforeOpen) beforeOpen();
       if (isOpenCtaPop) {
-        setIsOpenCtaPop(false);
+        // FUNCTION 애니메이션을 위해 팝업을 닫을 때의 함수를 따로 처리
+        const popupCloseBtn: HTMLElement | undefined = document.querySelector('.SideCta__pop');
+        if (!popupCloseBtn) return;
+        popupCloseBtn.click();
       } else {
         setIsOpenCtaPop(true);
       }

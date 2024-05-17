@@ -12,5 +12,9 @@
 
   &__logo {
     width: 6rem;
+
+    @media (min-width: 1600px) {
+      width: 10rem;
+    }
   }
 }
