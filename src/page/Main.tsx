@@ -9,7 +9,6 @@ const Main = () => {
   return (
     <>
       <Home />
-      <SideCta />
       <Fleet />
       <Service />
       <About />

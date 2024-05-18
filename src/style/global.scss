@@ -28,6 +28,10 @@ body {
   min-width: 280px;
   background: $black;
 }
+input,
+textarea {
+  font-family: 'Open Sans', sans-serif;
+}
 .Wrapper {
   position: relative;
 }

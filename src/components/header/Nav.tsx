@@ -7,6 +7,7 @@ import SideCta from 'components/side/SideCta';
 
 import { NavPropsType } from 'components/header/type';
 import { ReactComponent as CLOSE } from 'assets/image/common/close.svg';
+import { Link } from 'react-router-dom';
 
 const Nav: React.FC<NavPropsType> = ({ open, setOpen }) => {
   const [activeMenu, setActiveMenu] = useState<number>(0);
@@ -23,9 +24,9 @@ const Nav: React.FC<NavPropsType> = ({ open, setOpen }) => {
           <button className='Nav__btn--nav' onClick={onClickNavBtn}>
             <CLOSE />
           </button>
-          <a href='#' className='Nav__btn--contact'>
+          <Link to='/contact' className='Nav__btn--contact'>
             contact
-          </a>
+          </Link>
         </div>
         <NavBgImg active={activeMenu} />
         <div className='Nav__menu-container'>

@@ -1,0 +1,138 @@
+.ContactPage {
+  width: 100%;
+  min-height: 100vh;
+  background: $white;
+  padding: 0 10rem;
+
+  &__inner {
+    max-width: 1330px;
+    margin: 0 auto;
+    padding-top: 24rem;
+    padding-bottom: 10rem;
+    border-bottom: 0.1rem solid rgba(0, 0, 0, 0.1);
+  }
+
+  &__title {
+    font-size: 5rem;
+    font-weight: 400;
+  }
+
+  &__content {
+    margin-top: 10rem;
+    @include flex(space-between);
+    gap: 10rem;
+  }
+
+  &__info {
+    margin-top: 4rem;
+
+    &-container {
+      display: flex;
+      justify-content: space-between;
+      flex-direction: column;
+      flex-shrink: 0;
+    }
+    &:first-child {
+      margin-top: 0;
+    }
+    &:last-child {
+      margin-top: 6rem;
+      padding-top: 4rem;
+      position: relative;
+      &::before {
+        content: '';
+        display: block;
+        width: 5.8rem;
+        height: 0.1rem;
+        background: rgba(0, 0, 0, 0.2);
+        position: absolute;
+        top: 0;
+        left: 0;
+      }
+    }
+    &-title {
+      font-size: 2rem;
+      opacity: 0.6;
+      font-weight: 400;
+    }
+    &-list {
+      margin-top: 1.4rem;
+      &-item {
+        margin-top: 1.4rem;
+        font-weight: 500;
+        color: rgba(0, 0, 0, 0.8);
+        a {
+          @include flex(flex-start, center, 2rem);
+        }
+        svg {
+          width: 1.8rem;
+        }
+      }
+    }
+    &-link {
+      @include btn-with-arrow($black);
+      margin-top: 3.2rem;
+      text-transform: uppercase;
+    }
+  }
+
+  &__form {
+    max-width: 64rem;
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 5rem 4rem;
+    align-self: flex-start;
+
+    &-label {
+      @extend .sound-only;
+    }
+
+    &-button {
+      text-transform: uppercase;
+      @include btn-rounded($black, $white);
+      flex-shrink: 0;
+      &-container {
+        display: flex;
+        align-items: center;
+        width: 100%;
+        gap: 5rem;
+      }
+    }
+    &-input {
+      &-container {
+        @include InputContainer;
+        flex-basis: calc(50% - 2rem);
+      }
+      @include Input;
+      width: 100%;
+    }
+    &-textarea {
+      &-container {
+        @include InputContainer;
+        width: 100%;
+
+        &::after {
+          bottom: 0.4rem;
+        }
+      }
+      @include Input;
+      width: 100%;
+      resize: vertical;
+    }
+    &-notice {
+      width: 100%;
+      flex-grow: 1;
+      flex-shrink: 1;
+      word-break: keep-all;
+      line-height: 1.8;
+      font-size: 1.2rem;
+      color: rgba(0, 0, 0, 0.6);
+
+      a {
+        display: inline;
+        text-decoration: underline;
+      }
+    }
+  }
+}

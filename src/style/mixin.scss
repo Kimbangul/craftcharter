@@ -136,3 +136,38 @@
     transform: rotateZ(-90deg);
   }
 }
+
+@mixin InputContainer {
+  position: relative;
+  &::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    display: block;
+    width: 0;
+    height: 0.1rem;
+    background: $black;
+    will-change: width;
+    transition: width 0.3s;
+  }
+  &[data-focus='true'] {
+    &::after {
+      width: 100%;
+    }
+  }
+}
+@mixin Input {
+  height: 4rem;
+  padding: 0.8rem 0;
+  border: none;
+  border-bottom: 0.1rem solid rgba(0, 0, 0, 0.2);
+
+  &::placeholder {
+    color: rgba(0, 0, 0, 0.4);
+  }
+
+  &:focus {
+    outline: none;
+  }
+}

@@ -5,8 +5,9 @@ import Header from 'components/header/Header';
 import Footer from 'components/footer/Footer';
 
 import SideCtaPop, { CtaPopContext } from 'components/side/SideCtaPop';
-import ContactPop from 'components/contact/ContactPop';
+import ContactPage from 'page/ContactPage';
 import Main from 'page/Main';
+import SideCta from 'components/side/SideCta';
 
 function App() {
   const [isOpenCtaPop, setIsOpenCtaPop] = useState(false);
@@ -18,9 +19,10 @@ function App() {
           <Header />
           <Routes>
             <Route path='/' element={<Main />} />
-            <Route path='/contact' element={<ContactPop />} />
+            <Route path='/contact' element={<ContactPage />} />
           </Routes>
           <Footer />
+          <SideCta />
           <SideCtaPop />
         </BrowserRouter>
       </div>

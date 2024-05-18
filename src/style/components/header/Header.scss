@@ -38,6 +38,11 @@
     top: -9rem;
   }
 
+  &.sub {
+    @extend #{$Header}, .up;
+    top: 0;
+  }
+
   &__inner {
     @include flex(space-between, center);
     padding: 3.5rem 3rem 0.8rem 4rem;
@@ -91,6 +96,9 @@
   @media (max-width: $pc-width) {
     &.up {
       top: -9rem;
+    }
+    &.sub {
+      top: 0;
     }
     &__btn {
       &--contact {
