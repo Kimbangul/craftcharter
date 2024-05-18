@@ -1,16 +1,12 @@
 import 'style/style.scss';
-
-import Header from 'components/header/Header';
-import Home from 'components/home/Home';
-import SideCta from 'components/side/SideCta';
-import Fleet from 'components/fleet/Fleet';
-import Service from 'components/service/Service';
-import About from 'components/about/About';
-import Contact from 'components/contact/Contact';
-import Footer from 'components/footer/Footer';
 import { useState } from 'react';
+import { Routes, Route, BrowserRouter } from 'react-router-dom';
+import Header from 'components/header/Header';
+import Footer from 'components/footer/Footer';
+
 import SideCtaPop, { CtaPopContext } from 'components/side/SideCtaPop';
 import ContactPop from 'components/contact/ContactPop';
+import Main from 'page/Main';
 
 function App() {
   const [isOpenCtaPop, setIsOpenCtaPop] = useState(false);
@@ -18,16 +14,15 @@ function App() {
   return (
     <CtaPopContext.Provider value={{ isOpenCtaPop, setIsOpenCtaPop }}>
       <div className='Wrapper'>
-        <Header />
-        <Home />
-        <SideCta />
-        <Fleet />
-        <Service />
-        <About />
-        <Contact />
-        <ContactPop />
-        <Footer />
-        <SideCtaPop />
+        <BrowserRouter>
+          <Header />
+          <Routes>
+            <Route path='/' element={<Main />} />
+            <Route path='/contact' element={<ContactPop />} />
+          </Routes>
+          <Footer />
+          <SideCtaPop />
+        </BrowserRouter>
       </div>
     </CtaPopContext.Provider>
   );

@@ -1,4 +1,4 @@
-import { useCallback, useContext, useEffect, useMemo, useRef, useState } from 'react';
+import { useCallback, useContext } from 'react';
 import { ReactComponent as ARROW } from 'assets/image/side/arrow.svg';
 import { CtaPopContext } from 'components/side/SideCtaPop';
 

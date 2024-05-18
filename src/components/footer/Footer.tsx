@@ -1,6 +1,7 @@
 import Logo from 'components/common/logo/Logo';
 import { footerMenu, infoMenu } from 'components/footer/menu';
 import { Social, Credit } from 'components/common/social/Social';
+import { Link } from 'react-router-dom';
 
 const Footer = () => {
   return (
@@ -17,9 +18,9 @@ const Footer = () => {
               );
             })}
           </ul>
-          <a href='#' className='Footer__btn--round'>
+          <Link to='/contact' className='Footer__btn--round'>
             contact
-          </a>
+          </Link>
         </nav>
       </div>
       <hr />

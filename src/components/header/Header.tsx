@@ -4,6 +4,7 @@ import Nav from 'components/header/Nav';
 import useScroll from 'hooks/useScroll';
 import { ReactComponent as NavIconTop } from 'assets/image/common/nav-icon-top.svg';
 import { ReactComponent as NavIconBottom } from 'assets/image/common/nav-icon-bottom.svg';
+import { Link } from 'react-router-dom';
 
 const Header = () => {
   const [isNavOpen, setIsNavOpen] = useState<boolean>(false);
@@ -22,9 +23,9 @@ const Header = () => {
           <NavIconTop fill={logoColor} />
           <NavIconBottom fill={logoColor} />
         </button>
-        <a href='#' className='Header__btn--contact'>
+        <Link to='/contact' className='Header__btn--contact'>
           contact
-        </a>
+        </Link>
       </div>
       <Nav open={isNavOpen} setOpen={setIsNavOpen} />
     </header>
