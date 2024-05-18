@@ -18,8 +18,8 @@ const Header = () => {
   };
 
   useEffect(() => {
-    console.log(router);
-  }, [router]);
+    window.scrollTo({ top: 0 });
+  }, [router.pathname]);
 
   return (
     <header className={`Header ${isMain ? scroll.scrollDir : 'sub'}`}>

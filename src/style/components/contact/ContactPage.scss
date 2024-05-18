@@ -3,13 +3,13 @@
   min-height: 100vh;
   background: $white;
   padding: 0 10rem;
+  border-bottom: 0.1rem solid rgba(0, 0, 0, 0.1);
 
   &__inner {
     max-width: 1330px;
     margin: 0 auto;
     padding-top: 24rem;
     padding-bottom: 10rem;
-    border-bottom: 0.1rem solid rgba(0, 0, 0, 0.1);
   }
 
   &__title {
@@ -53,7 +53,7 @@
     &-title {
       font-size: 2rem;
       opacity: 0.6;
-      font-weight: 400;
+      font-weight: 300;
     }
     &-list {
       margin-top: 1.4rem;
@@ -132,6 +132,46 @@
       a {
         display: inline;
         text-decoration: underline;
+      }
+    }
+  }
+
+  @media (max-width: $tb-width) {
+    padding: 0 4rem;
+    &__inner {
+      padding-top: 12rem;
+      padding-bottom: 6rem;
+    }
+    &__title {
+      font-size: 3rem;
+    }
+    &__content {
+      flex-direction: column-reverse;
+      margin-top: 6rem;
+      gap: 8rem;
+    }
+    &__info {
+      &:last-child {
+        margin-top: 4rem;
+        padding-top: 3rem;
+      }
+    }
+    &__form {
+      flex-direction: column;
+      gap: 2.5rem;
+      &-input {
+        &-container {
+          flex-basis: auto;
+        }
+      }
+      &-button {
+        &-container {
+          display: block;
+          margin-top: 2.5rem;
+        }
+      }
+      &-notice {
+        margin-top: 2.2rem;
       }
     }
   }
