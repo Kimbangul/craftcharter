@@ -1,9 +1,19 @@
 .ContactPage {
+  @keyframes pageFadeIn {
+    0% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
+
   width: 100%;
   min-height: 100vh;
   background: $white;
   padding: 0 10rem;
   border-bottom: 0.1rem solid rgba(0, 0, 0, 0.1);
+  animation: pageFadeIn 0.3s;
 
   &__inner {
     max-width: 1330px;
