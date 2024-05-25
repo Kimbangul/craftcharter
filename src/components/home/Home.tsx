@@ -23,14 +23,19 @@ const Home = () => {
   // FUNCTION 스크롤 방향에 따른 scene 제어
   useEffect(() => {
     if (timerRef.current) return;
-    const introTop = document.querySelector('.Main').getBoundingClientRect().height;
-    console.log(scene, scroll.scroll, scroll.scrollDir);
+    const introTop = document
+      .querySelector('.Main')
+      .getBoundingClientRect().height;
     if (scene === 0 && scroll.scroll > 10 && scroll.scrollDir === 'down') {
       setScene(0.5);
       timerRef.current = setTimeout(() => {
         changeScene(1);
       }, 1000);
-    } else if (scene === 1 && scroll.scroll < introTop - 50 && scroll.scrollDir !== 'down') {
+    } else if (
+      scene === 1 &&
+      scroll.scroll < introTop - 50 &&
+      scroll.scrollDir !== 'down'
+    ) {
       setScene(0.5);
       timerRef.current = setTimeout(() => {
         changeScene(0);
