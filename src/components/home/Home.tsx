@@ -12,7 +12,6 @@ const Home = () => {
   const scroll = useScroll();
 
   const changeScene = (scene: number) => {
-    setIsPreventScroll(true);
     setScene(scene);
     setTimeout(() => {
       setIsPreventScroll(false);
@@ -27,6 +26,7 @@ const Home = () => {
       .querySelector('.Main')
       .getBoundingClientRect().height;
     if (scene === 0 && scroll.scroll > 10 && scroll.scrollDir === 'down') {
+      setIsPreventScroll(true);
       setScene(0.5);
       timerRef.current = setTimeout(() => {
         changeScene(1);
@@ -36,6 +36,7 @@ const Home = () => {
       scroll.scroll < introTop - 50 &&
       scroll.scrollDir !== 'down'
     ) {
+      setIsPreventScroll(true);
       setScene(0.5);
       timerRef.current = setTimeout(() => {
         changeScene(0);
